@@ -1,17 +1,12 @@
 /*
- * File:   HW26k83.c
+ * File:   UART26k83.c
  * Author: gaetan.paulet
- *
- * Created on 25 septembre 2023, 15:15
  * 
- * Programme "Hello World" :
- * -Bits de configuration
- * -Initialisations des SFR de base
- * -Utilisation des sorties (clignotement LED) : LED blinking
- * -Utilisation des entr�es (lecture de l'�tat d'un bouton poussoir) : BLOC 2
- * -D�tection de l'appui sur un bouton  : BLOC 3
- * -Utilisation de l'�cran LCD : BLOC 4
+ * Created on 26 septembre 2023, 11:17
  * 
+ * Communication UART entre le 18F16k83 et le PC.
+ * TX = RC6
+ * RX = RC7
  */
 // PIC18F26K83 Configuration Bit Settings
 
@@ -73,7 +68,6 @@
 // Use project enums instead of #define for ON and OFF.
 
 #define _XTAL_FREQ 64000000          //Oscillateur interne
-
 #define RS PORTAbits.RA0
 #define EN1 PORTAbits.RA1
 #define D4 PORTAbits.RA2
@@ -84,129 +78,76 @@
 #include <xc.h>
 #include "lcd.h"
 
-char pressed = 0;  // 0 not pressed, 1 pressed
-char state = 0;  // 1, 2, 3 for knowing which button was pressed last
-
-char getMode() {
-    // RA6 return 1
-    // RA7 return 2
-    // RC1 return 3
-    // else return 0
-    // do better with 2 variables one that knows if button is pressed and one that knows the last state
-    if (PORTAbits.RA6 == 0 && pressed == 0) {
-        pressed = 1;
-        state = 1;
-        return 1;
-    }
-    else if (PORTAbits.RA7 == 0 && pressed == 0) {
-        pressed = 1;
-        state = 2;
-        return 2;
-    }
-    else if (PORTCbits.RC1 == 0 && pressed == 0) {
-        pressed = 1;
-        state = 3;
-        return 3;
-    }
-    else if (PORTAbits.RA6 == 1 && PORTAbits.RA7 == 1 && PORTCbits.RC1 == 1) {
-        pressed = 0;
-        return state;
-    }
-    else {
-        return state;
-    }
-}
-
 
 void main(void) {
-
-    char lastmode = 0;
-    char mode = 0;
-    char timer = 0; // 1 equal to 100ms
     
-    TRISA = 0b11000000;     //RA7 et RA6 : boutons ; RA5 � RA0 : connexions LCD
-    TRISB = 0;              //RB5 et RB4 : LEDs ; les autres bits sont non utilis�s pour l'instant
-    TRISC = 0b00000011;     //RC2 : LED ; RC1  et RC0 : boutons ; les autres bits sont non utilis�s pour l'instant
-    
-    ANSELA = 0;             //D�sactivation
-    ANSELB = 0;             //des
-    ANSELC = 0;             //entr�es analogiques
-    
+    TRISA = 0b11000000;
+    TRISB = 0;
+    TRISC = 0b10000011;
+    ANSELA = 0;
+    ANSELB = 0;
+    ANSELC = 0;
     PORTB = 0;
     PORTC = 0;
+    
+    U1RXPPS = 0b00010111;   //RC7 d�finie comme RX1 (valeur par d�faut maintenue)
+    RC6PPS  = 0b00010011;   //RC6 d�finie comme TX1 
+    
+    U1CON0 = 0b10100000;    //BRGS=1 ; No auto-baud ; TXEN = 1 ; RXEN = 0 ; Asynchrone 8bits
+    U1CON1 = 0b10000000;    //Serial ON ; on garde les autres bits � 0 (valeurs par d�faut) car fonctions non utilis�es
+    U1CON2 = 0;             //Valeurs par d�faut
+    U1BRG  = 138;          //Valeur sur 16bits (U1BRGH et U1BRGL) : Avec BRGS = 1 et Fosc = 64Mhz
+                            //Donne 115200
     
     Lcd_Init();             //Initialisation du LCD
     Lcd_Clear();            //Effacement du LCD
     
+    char l_start = 0;
+
     while(1)
     {
-        mode = getMode();
+        char message[] = {65,112,112,117,105,32,98,111,117,116,111,110,32,82,67,48,13,10}; // "Appui bouton RC0" + CR + LF
 
-        if (mode != lastmode) {
-            timer = 0;
-            lastmode = mode;
-        }
-        if (mode == 1) {
-            Lcd_Clear();
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("Mode 1");
-            // TODO replace with xor to remove the delay
-            __delay_ms(5);
-            PORTBbits.RB4 = 1;  //On allume la LED sur RB5
-            __delay_ms(5);
-            PORTBbits.RB5 = 1;  //On allume la LED sur RB4
-        }
-        else if (mode == 2) {
-            Lcd_Clear();
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("Mode 2");
-            __delay_ms(5);
-            if (timer < 5) {
-                // TODO replace with xor to remove the delay
-                PORTBbits.RB5 = 1;  //On allume la LED sur RB5
+        if (PORTCbits.RC0 == 0) {
+            for (int i = 0; i < sizeof(message)/sizeof(message[0]); i++) {
+                U1TXB = message[i];
                 __delay_ms(5);
-                PORTBbits.RB4 = 1;  //On �teint la LED sur RB4
-            } else {
-                // TODO replace with xor to remove the delay
-                PORTBbits.RB5 = 0;  //On �teint la LED sur RB5
-                __delay_ms(5);
-                PORTBbits.RB4 = 0;  //On allume la LED sur RB4
             }
-            timer++;
-            if (timer >= 10) {
-                timer = 0;
-            }
-             __delay_ms(100);
-        }
-        else if (mode == 3) {
-            Lcd_Clear();
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("Mode 3");
-            __delay_ms(5);
-            // TODO replace with xor to remove the delay
-            if (timer < 5) {
-                PORTBbits.RB4 = 1;  //On allume la LED sur RB4
-                __delay_ms(5);
-                PORTBbits.RB5 = 0;  //On �teint la LED sur RB5
-            } else if (timer < 10) {
-                PORTBbits.RB4 = 0;  //On �teint la LED sur RB4
-                __delay_ms(5);
-                PORTBbits.RB5 = 1;  //On allume la LED sur RB5
-            } else {
-                timer = 0;
-            }
-            timer++;
-            __delay_ms(50);
-        }
-        else {
-            Lcd_Clear();
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("No mode");
-            PORTBbits.RB5 = 0;
-            PORTBbits.RB4 = 0;
-            __delay_ms(200);
         }
 
-    }    
+        U1CON0bits.RXEN = 1;
+        if (U1FIFObits.RXBE == 0) {
+            Lcd_Clear();
+            Lcd_Set_Cursor(1,1);
+            char c = U1RXB;
+            char txt[2] = { c, '\0' };
+            Lcd_Write_String(txt);
+            if (U1RXB == 108) {
+                l_start = 1;
+                PORTCbits.RC2 = 1;
+            }
+            else if (l_start == 1 && U1RXB == 52) {
+                l_start = 0;
+                PORTCbits.RC2 = 0;
+                __delay_ms(5);
+                PORTBbits.RB4 = 1;
+                __delay_ms(5);
+                PORTBbits.RB5 = 0;
+            }
+            else if (l_start == 1 && U1RXB == 53) {
+                l_start = 0;
+                PORTCbits.RC2 = 0;
+                __delay_ms(5);
+                PORTBbits.RB5 = 1;
+                __delay_ms(5);
+                PORTBbits.RB4 = 0;
+            }
+            else {
+                l_start = 0;
+            }
+            U1FIFObits.RXBE = 1;
+        }
+    }
+    
     return;
 }
