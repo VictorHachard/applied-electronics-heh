@@ -1,0 +1,264 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F26K83 ]
+[d frameptr 16353 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"9 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aodiv.c
+[v ___aodiv __aodiv `(o  1 e 8 0 ]
+"9 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aomod.c
+[v ___aomod __aomod `(o  1 e 8 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"9 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lodiv.c
+[v ___lodiv __lodiv `(uo  1 e 8 0 ]
+"9 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lomod.c
+[v ___lomod __lomod `(uo  1 e 8 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"15 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"28 C:\Users\admin\Documents\GitHub\applied-electronics-heh\exo-7.X\EXO7.c
+[v _bt_send_str bt_send_str `(v  1 s 1 bt_send_str ]
+"39
+[v _init_hw init_hw `(v  1 s 1 init_hw ]
+"72
+[v _isr isr `IIH(v  1 e 1 0 ]
+"96
+[v _main main `(i  1 e 2 0 ]
+"25148 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc/pic18f26k83.h
+[v _PIE0 PIE0 `VEuc  1 e 1 @14736 ]
+[s S64 . 1 `uc 1 I2C2RXIE 1 0 :1:0 
+`uc 1 I2C2TXIE 1 0 :1:1 
+`uc 1 I2C2IE 1 0 :1:2 
+`uc 1 I2C2EIE 1 0 :1:3 
+`uc 1 U2RXIE 1 0 :1:4 
+`uc 1 U2TXIE 1 0 :1:5 
+`uc 1 U2EIE 1 0 :1:6 
+`uc 1 U2IE 1 0 :1:7 
+]
+"25716
+[u S73 . 1 `S64 1 . 1 0 ]
+[v _PIE7bits PIE7bits `VES73  1 e 1 @14743 ]
+[s S135 . 1 `uc 1 SWIF 1 0 :1:0 
+`uc 1 HLVDIF 1 0 :1:1 
+`uc 1 OSFIF 1 0 :1:2 
+`uc 1 CSWIF 1 0 :1:3 
+`uc 1 NVMIF 1 0 :1:4 
+`uc 1 SCANIF 1 0 :1:5 
+`uc 1 CRCIF 1 0 :1:6 
+`uc 1 IOCIF 1 0 :1:7 
+]
+"25896
+[u S144 . 1 `S135 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES144  1 e 1 @14752 ]
+[s S24 . 1 `uc 1 I2C2RXIF 1 0 :1:0 
+`uc 1 I2C2TXIF 1 0 :1:1 
+`uc 1 I2C2IF 1 0 :1:2 
+`uc 1 I2C2EIF 1 0 :1:3 
+`uc 1 U2RXIF 1 0 :1:4 
+`uc 1 U2TXIF 1 0 :1:5 
+`uc 1 U2EIF 1 0 :1:6 
+`uc 1 U2IF 1 0 :1:7 
+]
+"26415
+[u S33 . 1 `S24 1 . 1 0 ]
+[v _PIR7bits PIR7bits `VES33  1 e 1 @14759 ]
+"29121
+[v _RB6PPS RB6PPS `VEuc  1 e 1 @14862 ]
+"29621
+[v _ANSELA ANSELA `VEuc  1 e 1 @14912 ]
+"30117
+[v _ANSELB ANSELB `VEuc  1 e 1 @14928 ]
+"30829
+[v _ANSELC ANSELC `VEuc  1 e 1 @14944 ]
+"31201
+[v _IOCCN IOCCN `VEuc  1 e 1 @14950 ]
+"31263
+[v _IOCCF IOCCF `VEuc  1 e 1 @14951 ]
+[s S156 . 1 `uc 1 IOCCF0 1 0 :1:0 
+`uc 1 IOCCF1 1 0 :1:1 
+`uc 1 IOCCF2 1 0 :1:2 
+`uc 1 IOCCF3 1 0 :1:3 
+`uc 1 IOCCF4 1 0 :1:4 
+`uc 1 IOCCF5 1 0 :1:5 
+`uc 1 IOCCF6 1 0 :1:6 
+`uc 1 IOCCF7 1 0 :1:7 
+]
+"31280
+[u S165 . 1 `S156 1 . 1 0 ]
+[v _IOCCFbits IOCCFbits `VES165  1 e 1 @14951 ]
+"32486
+[v _U2RXPPS U2RXPPS `VEuc  1 e 1 @15082 ]
+"45587
+[v _U2RXB U2RXB `VEuc  1 e 1 @15824 ]
+"45645
+[v _U2TXB U2TXB `VEuc  1 e 1 @15826 ]
+"45844
+[v _U2CON0 U2CON0 `VEuc  1 e 1 @15834 ]
+[s S85 . 1 `uc 1 MODE0 1 0 :1:0 
+`uc 1 MODE1 1 0 :1:1 
+`uc 1 MODE2 1 0 :1:2 
+`uc 1 MODE3 1 0 :1:3 
+]
+"45877
+[s S90 . 1 `uc 1 U2MODE 1 0 :4:0 
+`uc 1 U2RXEN 1 0 :1:4 
+`uc 1 U2TXEN 1 0 :1:5 
+`uc 1 U2ABDEN 1 0 :1:6 
+`uc 1 U2BRGS 1 0 :1:7 
+]
+"45877
+[s S96 . 1 `uc 1 U2MODE0 1 0 :1:0 
+`uc 1 U2MODE1 1 0 :1:1 
+`uc 1 U2MODE2 1 0 :1:2 
+`uc 1 U2MODE3 1 0 :1:3 
+]
+"45877
+[s S101 . 1 `uc 1 MODE 1 0 :4:0 
+`uc 1 RXEN 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 ABDEN 1 0 :1:6 
+`uc 1 BRGS 1 0 :1:7 
+]
+"45877
+[u S107 . 1 `S85 1 . 1 0 `S90 1 . 1 0 `S96 1 . 1 0 `S101 1 . 1 0 ]
+"45877
+"45877
+[v _U2CON0bits U2CON0bits `VES107  1 e 1 @15834 ]
+"45972
+[v _U2CON1 U2CON1 `VEuc  1 e 1 @15835 ]
+"46052
+[v _U2CON2 U2CON2 `VEuc  1 e 1 @15836 ]
+"46194
+"46194
+[v _U2BRG U2BRG `VEus  1 e 2 @15837 ]
+"70411
+[v _TRISA TRISA `VEuc  1 e 1 @16322 ]
+"70473
+[v _TRISB TRISB `VEuc  1 e 1 @16323 ]
+"70535
+[v _TRISC TRISC `VEuc  1 e 1 @16324 ]
+"70681
+[v _PORTB PORTB `VEuc  1 e 1 @16331 ]
+[s S178 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"70702
+[s S187 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+"70702
+[u S190 . 1 `S178 1 . 1 0 `S187 1 . 1 0 ]
+"70702
+"70702
+[v _PORTBbits PORTBbits `VES190  1 e 1 @16331 ]
+"70752
+[v _PORTC PORTC `VEuc  1 e 1 @16332 ]
+[s S212 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"70778
+[s S221 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+"70778
+[s S225 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+"70778
+[u S228 . 1 `S212 1 . 1 0 `S221 1 . 1 0 `S225 1 . 1 0 ]
+"70778
+"70778
+[v _PORTCbits PORTCbits `VES228  1 e 1 @16332 ]
+"70877
+[v _INTCON0 INTCON0 `VEuc  1 e 1 @16338 ]
+"25 C:\Users\admin\Documents\GitHub\applied-electronics-heh\exo-7.X\EXO7.c
+[v _blink_rb5 blink_rb5 `VEa  1 e 1 0 ]
+"26
+[v _ioc_rc0_event ioc_rc0_event `VEa  1 e 1 0 ]
+"96
+[v _main main `(i  1 e 2 0 ]
+{
+"102
+[v main@tick50_rb5 tick50_rb5 `uc  1 a 1 9 ]
+"101
+[v main@tick50_rc2 tick50_rc2 `uc  1 a 1 8 ]
+"123
+} 0
+"39
+[v _init_hw init_hw `(v  1 s 1 init_hw ]
+{
+"70
+} 0
+"72
+[v _isr isr `IIH(v  1 e 1 0 ]
+{
+"83
+[v isr@c c `uc  1 a 1 5 ]
+"94
+} 0
+"28
+[v _bt_send_str bt_send_str `(v  1 s 1 bt_send_str ]
+{
+[v bt_send_str@s s `*.31Cuc  1 p 1 0 ]
+"37
+} 0
