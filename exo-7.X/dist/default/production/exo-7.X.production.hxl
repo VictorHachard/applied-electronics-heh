@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_3.o
+ C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_3.o
  -Odist/default/production\exo-7.X.production.hex
  -logfile=dist/default/production\exo-7.X.production.hxl
  -addressing=1
@@ -14,21 +14,21 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_3.o)
-  8h - Bh		(C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_3.o)
-  18h - 1Dh		(C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_3.o)
-  1000h - 1215h		(C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_3.o)
-  300000h - 300009h		(C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_3.o)
+  0h - 3h		(C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_3.o)
+  8h - Bh		(C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_3.o)
+  18h - 1Dh		(C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_3.o)
+  1000h - 1235h		(C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_3.o)
+  300000h - 300009h		(C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
   Ch - 17h
   1Eh - FFFh
-  1216h - 2FFFFFh
+  1236h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -68,7 +68,9 @@
 000011E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000011F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001200 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001210 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
+00001210 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001220 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001230 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00300000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 00300010 | --

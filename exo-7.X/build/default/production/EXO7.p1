@@ -3364,14 +3364,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EXO7.c: 70: }
 [e :UE 3263 ]
 }
-[v $root$_isr `(v ~T0 @X0 0 e ]
+[v $root$_fonc `(v ~T0 @X0 0 e ]
 "72
-[; ;EXO7.c: 72: void __attribute__((picinterrupt(("")))) isr(void)
-[v _isr `(v ~T1 @X0 1 ef ]
+[; ;EXO7.c: 72: void __attribute__((picinterrupt(("")))) fonc(void)
+[v _fonc `(v ~T1 @X0 1 ef ]
 "73
 [; ;EXO7.c: 73: {
 {
-[e :U _isr ]
+[e :U _fonc ]
 [f ]
 "75
 [; ;EXO7.c: 75:     if (PIR0bits.IOCIF && IOCCFbits.IOCCF0) {
@@ -3384,142 +3384,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EXO7.c: 77:         bt_send_str("RC0");
 [e ( _bt_send_str (1 :s 1C ]
 "78
-[; ;EXO7.c: 78:         PIR0bits.IOCIF = 0;
-[e = . . _PIR0bits 0 7 -> -> 0 `i `uc ]
-"79
-[; ;EXO7.c: 79:     }
+[; ;EXO7.c: 78:     }
 }
 [e :U 3265 ]
-"82
-[; ;EXO7.c: 82:     if (PIE7bits.U2RXIE && PIR7bits.U2RXIF) {
+"81
+[; ;EXO7.c: 81:     if (PIE7bits.U2RXIE && PIR7bits.U2RXIF) {
 [e $ ! && != -> . . _PIE7bits 0 4 `i -> 0 `i != -> . . _PIR7bits 0 4 `i -> 0 `i 3266  ]
 {
-"83
-[; ;EXO7.c: 83:         uint8_t c = U2RXB;
+"82
+[; ;EXO7.c: 82:         uint8_t c = U2RXB;
 [v _c `uc ~T0 @X0 1 a ]
 [e = _c _U2RXB ]
-"84
-[; ;EXO7.c: 84:         if (c == 'A') {
-[e $ ! == -> _c `ui -> 65 `ui 3267  ]
+"83
+[; ;EXO7.c: 83:         if (c == 'A' || c == 'a') {
+[e $ ! || == -> _c `ui -> 65 `ui == -> _c `ui -> 97 `ui 3267  ]
 {
-"85
-[; ;EXO7.c: 85:             blink_rb5 = 1;
+"84
+[; ;EXO7.c: 84:             blink_rb5 = 1;
 [e = _blink_rb5 -> -> 1 `i `a ]
-"86
-[; ;EXO7.c: 86:             bt_send_str("OK_A");
+"85
+[; ;EXO7.c: 85:             bt_send_str("OK_A");
 [e ( _bt_send_str (1 :s 2C ]
-"87
-[; ;EXO7.c: 87:         } else if (c == 'B') {
+"86
+[; ;EXO7.c: 86:         } else if (c == 'B' || c == 'b') {
 }
 [e $U 3268  ]
 [e :U 3267 ]
-[e $ ! == -> _c `ui -> 66 `ui 3269  ]
+[e $ ! || == -> _c `ui -> 66 `ui == -> _c `ui -> 98 `ui 3269  ]
 {
-"88
-[; ;EXO7.c: 88:             blink_rb5 = 0;
+"87
+[; ;EXO7.c: 87:             blink_rb5 = 0;
 [e = _blink_rb5 -> -> 0 `i `a ]
-"89
-[; ;EXO7.c: 89:             PORTBbits.RB5 = 0;
+"88
+[; ;EXO7.c: 88:             PORTBbits.RB5 = 0;
 [e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-"90
-[; ;EXO7.c: 90:             bt_send_str("OK_B");
+"89
+[; ;EXO7.c: 89:             bt_send_str("OK_B");
 [e ( _bt_send_str (1 :s 3C ]
-"91
-[; ;EXO7.c: 91:         }
+"90
+[; ;EXO7.c: 90:         }
 }
 [e :U 3269 ]
 [e :U 3268 ]
-"92
-[; ;EXO7.c: 92:         PIR7bits.U2RXIF = 0;
+"91
+[; ;EXO7.c: 91:         PIR7bits.U2RXIF = 0;
 [e = . . _PIR7bits 0 4 -> -> 0 `i `uc ]
-"93
-[; ;EXO7.c: 93:     }
+"92
+[; ;EXO7.c: 92:     }
 }
 [e :U 3266 ]
-"94
-[; ;EXO7.c: 94: }
+"93
+[; ;EXO7.c: 93: }
 [e :UE 3264 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"96
-[; ;EXO7.c: 96: int main(void)
+"95
+[; ;EXO7.c: 95: int main(void)
 [v _main `(i ~T0 @X0 1 ef ]
-"97
-[; ;EXO7.c: 97: {
+"96
+[; ;EXO7.c: 96: {
 {
 [e :U _main ]
 [f ]
-"98
-[; ;EXO7.c: 98:     init_hw();
+"97
+[; ;EXO7.c: 97:     init_hw();
 [e ( _init_hw ..  ]
-"101
-[; ;EXO7.c: 101:     uint8_t tick50_rc2 = 0;
+"99
+[; ;EXO7.c: 99:     uint8_t tick50_rc2 = 0;
 [v _tick50_rc2 `uc ~T0 @X0 1 a ]
 [e = _tick50_rc2 -> -> 0 `i `uc ]
-"102
-[; ;EXO7.c: 102:     uint8_t tick50_rb5 = 0;
+"100
+[; ;EXO7.c: 100:     uint8_t tick50_rb5 = 0;
 [v _tick50_rb5 `uc ~T0 @X0 1 a ]
 [e = _tick50_rb5 -> -> 0 `i `uc ]
-"104
-[; ;EXO7.c: 104:     while (1) {
+"102
+[; ;EXO7.c: 102:     while (1) {
 [e :U 3272 ]
 {
-"105
-[; ;EXO7.c: 105:         _delay((unsigned long)((50)*(64000000UL/4000.0)));
+"103
+[; ;EXO7.c: 103:         _delay((unsigned long)((50)*(64000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"108
-[; ;EXO7.c: 108:         if (++tick50_rc2 >= 40) {
+"106
+[; ;EXO7.c: 106:         if (++tick50_rc2 >= 40) {
 [e $ ! >= -> =+ _tick50_rc2 -> -> 1 `i `uc `i -> 40 `i 3274  ]
 {
-"109
-[; ;EXO7.c: 109:             PORTCbits.RC2 ^= 1;
+"107
+[; ;EXO7.c: 107:             PORTCbits.RC2 ^= 1;
 [e =^ . . _PORTCbits 0 2 -> -> 1 `i `Vuc ]
-"110
-[; ;EXO7.c: 110:             tick50_rc2 = 0;
+"108
+[; ;EXO7.c: 108:             tick50_rc2 = 0;
 [e = _tick50_rc2 -> -> 0 `i `uc ]
-"111
-[; ;EXO7.c: 111:         }
+"109
+[; ;EXO7.c: 109:         }
 }
 [e :U 3274 ]
-"114
-[; ;EXO7.c: 114:         if (blink_rb5) {
+"112
+[; ;EXO7.c: 112:         if (blink_rb5) {
 [e $ ! != -> _blink_rb5 `i -> 0 `i 3275  ]
 {
-"115
-[; ;EXO7.c: 115:             if (++tick50_rb5 >= 20) {
+"113
+[; ;EXO7.c: 113:             if (++tick50_rb5 >= 20) {
 [e $ ! >= -> =+ _tick50_rb5 -> -> 1 `i `uc `i -> 20 `i 3276  ]
 {
-"116
-[; ;EXO7.c: 116:                 PORTBbits.RB5 ^= 1;
+"114
+[; ;EXO7.c: 114:                 PORTBbits.RB5 ^= 1;
 [e =^ . . _PORTBbits 0 5 -> -> 1 `i `Vuc ]
-"117
-[; ;EXO7.c: 117:                 tick50_rb5 = 0;
+"115
+[; ;EXO7.c: 115:                 tick50_rb5 = 0;
 [e = _tick50_rb5 -> -> 0 `i `uc ]
-"118
-[; ;EXO7.c: 118:             }
+"116
+[; ;EXO7.c: 116:             }
 }
 [e :U 3276 ]
-"119
-[; ;EXO7.c: 119:         } else {
+"117
+[; ;EXO7.c: 117:         } else {
 }
 [e $U 3277  ]
 [e :U 3275 ]
 {
-"120
-[; ;EXO7.c: 120:             tick50_rb5 = 0;
+"118
+[; ;EXO7.c: 118:             tick50_rb5 = 0;
 [e = _tick50_rb5 -> -> 0 `i `uc ]
-"121
-[; ;EXO7.c: 121:         }
+"119
+[; ;EXO7.c: 119:         }
 }
 [e :U 3277 ]
-"122
-[; ;EXO7.c: 122:     }
+"120
+[; ;EXO7.c: 120:     }
 }
 [e :U 3271 ]
 [e $U 3272  ]
 [e :U 3273 ]
-"123
-[; ;EXO7.c: 123: }
+"121
+[; ;EXO7.c: 121: }
 [e :UE 3270 ]
 }
 [a 3C 79 75 95 66 0 ]

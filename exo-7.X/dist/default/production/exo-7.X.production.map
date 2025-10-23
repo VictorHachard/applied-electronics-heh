@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v3.10\pic\dat\20250813170317_en.msgs \
   -pivt0x8=08h -cn -h+dist/default/production\exo-7.X.production.sym \
   --cmf=dist/default/production\exo-7.X.production.cmf -z -Q18F26K83 \
-  -oC:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_3.o \
+  -oC:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/exo-7.X.production.map \
-  --md=C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_0.dat -E1 \
+  --md=C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0FFFh -ABIGRAM=01h-0FFFh \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_9.o \
+  C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_9.o \
   dist/default/production\exo-7.X.production.o 
 
 Object code version is 3.11
@@ -38,7 +38,7 @@ Machine type is 18F26K83
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\admin\AppData\Local\Temp\xcAsdt0.0\driver_tmp_9.o
+C:\Users\admin\AppData\Local\Temp\xcAsjoc.0\driver_tmp_9.o
                 config                           300000   300000        A        0       4
                 init                                 1A       1A        4        4       0
                 reset_vec                             0        0        4        0       0
@@ -46,24 +46,24 @@ dist/default/production\exo-7.X.production.o
                 config                           300000   300000        A        0       4
                 smallconst                         1000     1000       10      800       0
                 ivt0x8                                8        8       12        4       0
-                text3                              10D8     10D8       6C      808       0
-                text2                              1010     1010       C8      808       0
-                text1                              11A6     11A6       52      808       0
-                text0                              1144     1144       62      808       0
+                text3                              10F8     10F8       6C      808       0
+                text2                              1010     1010       E8      808       0
+                text1                              11C6     11C6       52      808       0
+                text0                              1164     1164       62      808       0
                 cstackCOMRAM                          1        1        A        1       1
                 bssCOMRAM                             B        B        2        1       1
-                cinit                              11F8     11F8       1E      808       0
+                cinit                              1218     1218       1E      808       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 init                                 1A       1A        4         0
                 reset_vec                             0        0        4         0
                 ivt0x8                                8        8       12         0
-                text3                              10D8     10D8       6C         0
-                text2                              1010     1010       C8         0
-                text1                              11A6     11A6       52         0
-                text0                              1144     1144       62         0
-                cinit                              11F8     11F8       1E         0
+                text3                              10F8     10F8       6C         0
+                text2                              1010     1010       E8         0
+                text1                              11C6     11C6       52         0
+                text0                              1164     1164       62         0
+                cinit                              1218     1218       1E         0
 
         CLASS   CONST          
 
@@ -139,7 +139,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackCOMRAM                   000001  00000C  00000D         1       1  COMRAM  
                 ivt0x8                         000008  000016  00001E         4       0  CODE    
                 smallconst                     001000  000010  001010       800       0  SMALLCON
-                text2                          001010  000206  001216       808       0  CODE    
+                text2                          001010  000226  001236       808       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -165,17 +165,17 @@ UNUSED ADDRESS RANGES
         BIGSFR           003700-003FFF              900
         CODE             000004-000007                4
                          00001E-000FFF              FE2
-                         001216-00FFFF             EDEA
+                         001236-00FFFF             EDCA
         COMRAM           00000D-00005F               53
         CONST            000004-000007                4
                          00001E-000FFF              FE2
-                         001216-00FFFF             EDEA
+                         001236-00FFFF             EDCA
         EEDATA           310000-3103FF              400
         IDLOC            200000-20000F               10
-        MEDIUMCONST      001216-00FFFF             EDEA
+        MEDIUMCONST      001236-00FFFF             EDCA
         RAM              000060-000FFF              100
         SFR              003700-003FFF              100
-        SMALLCONST       001216-00FFFF              100
+        SMALLCONST       001236-00FFFF              100
 
                                   Symbol Table
 
@@ -268,7 +268,7 @@ __Hreset_vec             reset_vec    000004
 __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   001010
-__Hspace_0               (abs)        001216
+__Hspace_0               (abs)        001236
 __Hspace_1               (abs)        00000D
 __Hspace_2               (abs)        000000
 __Hspace_4               (abs)        60000A
@@ -351,7 +351,7 @@ __Ltext0                 text0        000000
 __Ltext1                 text1        000000
 __Ltext2                 text2        000000
 __Ltext3                 text3        000000
-__S0                     (abs)        001216
+__S0                     (abs)        001236
 __S1                     (abs)        00000D
 __S4                     (abs)        000000
 __S5                     (abs)        000000
@@ -370,61 +370,61 @@ ___stack_hi              stack        000000
 ___stack_lo              stack        000000
 __accesstop              (abs)        000060
 __activetblptr           (abs)        000001
-__end_of__initialization cinit        001208
-__end_of_bt_send_str     text3        001144
-__end_of_init_hw         text1        0011F8
-__end_of_isr             text2        0010D8
-__end_of_main            text0        0011A6
-__initialization         cinit        0011F8
+__end_of__initialization cinit        001228
+__end_of_bt_send_str     text3        001164
+__end_of_fonc            text2        0010F8
+__end_of_init_hw         text1        001218
+__end_of_main            text0        0011C6
+__initialization         cinit        001218
 __mediumconst            smallconst   001000
 __pbssCOMRAM             bssCOMRAM    00000B
-__pcinit                 cinit        0011F8
+__pcinit                 cinit        001218
 __pcstackCOMRAM          cstackCOMRAM 000001
 __pivt0x8                ivt0x8       000008
 __psmallconst            smallconst   001000
-__ptext0                 text0        001144
-__ptext1                 text1        0011A6
+__ptext0                 text0        001164
+__ptext1                 text1        0011C6
 __ptext2                 text2        001010
-__ptext3                 text3        0010D8
+__ptext3                 text3        0010F8
 __ramtop                 ramtop       001000
 __smallconst             smallconst   001000
 _blink_rb5               bssCOMRAM    00000C
-_bt_send_str             text3        0010D8
-_init_hw                 text1        0011A6
+_bt_send_str             text3        0010F8
+_fonc                    text2        001010
+_init_hw                 text1        0011C6
 _ioc_rc0_event           bssCOMRAM    00000B
-_isr                     text2        001010
-_main                    text0        001144
+_main                    text0        001164
 bt_send_str@s            cstackCOMRAM 000001
-end_of_initialization    cinit        001208
+end_of_initialization    cinit        001228
+fonc@c                   cstackCOMRAM 000006
 intlevel0                text         000000
 intlevel1                text         000000
 intlevel2                text         000000
 intlevel3                text         000000
 isa$std                  (abs)        000001
 isa$xinst                (abs)        000000
-isr@c                    cstackCOMRAM 000006
 ivt0x8_base              ivt0x8       000008
 main@tick50_rb5          cstackCOMRAM 00000A
 main@tick50_rc2          cstackCOMRAM 000009
 stackhi                  (abs)        000000
 stacklo                  (abs)        000000
 start                    init         00001A
-start_initialization     cinit        0011F8
+start_initialization     cinit        001218
 
 
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 EXO7.c
-		_init_hw       		CODE           	11A6	0000	82
-		_main          		CODE           	1144	0000	98
-		_isr           		CODE           	1010	0000	200
-		_bt_send_str   		CODE           	10D8	0000	108
+		_init_hw       		CODE           	11C6	0000	82
+		_main          		CODE           	1164	0000	98
+		_bt_send_str   		CODE           	10F8	0000	108
+		_fonc          		CODE           	1010	0000	232
 
-EXO7.c estimated size: 488
+EXO7.c estimated size: 520
 
 shared
-		__initialization		CODE           	11F8	0000	16
+		__initialization		CODE           	1218	0000	16
 
 shared estimated size: 16
 

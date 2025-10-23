@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.10 build 20250813170317 
-                                                                                               Thu Oct 23 09:54:26 2025
+                                                                                               Thu Oct 23 10:00:20 2025
 
 Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1 
      1                           	processor	18F26K83
@@ -1181,16 +1181,16 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1167                           ; #config settings
   1168                           
   1169                           	psect	cinit
-  1170   0011F8                     __pcinit:
+  1170   001218                     __pcinit:
   1171                           	callstack 0
-  1172   0011F8                     start_initialization:
+  1172   001218                     start_initialization:
   1173                           	callstack 0
-  1174   0011F8                     __initialization:
+  1174   001218                     __initialization:
   1175                           	callstack 0
   1176                           
   1177                           ; Clear objects allocated to COMRAM (2 bytes)
-  1178   0011F8  6A0C               	clrf	(__pbssCOMRAM+1)& (0+255),c
-  1179   0011FA  6A0B               	clrf	__pbssCOMRAM& (0+255),c
+  1178   001218  6A0C               	clrf	(__pbssCOMRAM+1)& (0+255),c
+  1179   00121A  6A0B               	clrf	__pbssCOMRAM& (0+255),c
   1180                           
   1181                           ;
   1182                           ; Setup IVTBASE
@@ -1198,22 +1198,22 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1184   003FD5                     IVTBASEL        equ	16341
   1185   003FD6                     IVTBASEH        equ	16342
   1186   003FD7                     IVTBASEU        equ	16343
-  1187   0011FC  0E08               	movlw	(ivt0x8_base shr 0)& (0+255)
-  1188   0011FE  6ED5               	movwf	213,c
-  1189   001200  0E00               	movlw	(ivt0x8_base shr (0+8))& (0+255)
-  1190   001202  6ED6               	movwf	214,c
-  1191   001204  0E00               	movlw	(ivt0x8_base shr (0+16))& (0+255)
-  1192   001206  6ED7               	movwf	215,c
-  1193   001208                     end_of_initialization:
+  1187   00121C  0E08               	movlw	(ivt0x8_base shr 0)& (0+255)
+  1188   00121E  6ED5               	movwf	213,c
+  1189   001220  0E00               	movlw	(ivt0x8_base shr (0+8))& (0+255)
+  1190   001222  6ED6               	movwf	214,c
+  1191   001224  0E00               	movlw	(ivt0x8_base shr (0+16))& (0+255)
+  1192   001226  6ED7               	movwf	215,c
+  1193   001228                     end_of_initialization:
   1194                           	callstack 0
-  1195   001208                     __end_of__initialization:
+  1195   001228                     __end_of__initialization:
   1196                           	callstack 0
-  1197   001208  0E00               	movlw	low (__Lsmallconst shr (0+16))
-  1198   00120A  6EF8               	movwf	tblptru,c
-  1199   00120C  0E10               	movlw	high __Lsmallconst
-  1200   00120E  6EF7               	movwf	tblptrh,c
-  1201   001210  0100               	movlb	0
-  1202   001212  EFA2  F008         	goto	_main	;jump to C main() function
+  1197   001228  0E00               	movlw	low (__Lsmallconst shr (0+16))
+  1198   00122A  6EF8               	movwf	tblptru,c
+  1199   00122C  0E10               	movlw	high __Lsmallconst
+  1200   00122E  6EF7               	movwf	tblptrh,c
+  1201   001230  0100               	movlb	0
+  1202   001232  EFB2  F008         	goto	_main	;jump to C main() function
   1203                           
   1204                           	psect	bssCOMRAM
   1205   00000B                     __pbssCOMRAM:
@@ -1233,11 +1233,11 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1219                           
   1220                           ; 1 bytes @ 0x0
   1221   000001                     	ds	1
-  1222   000002                     ??_isr:
+  1222   000002                     ??_fonc:
   1223                           
   1224                           ; 1 bytes @ 0x1
   1225   000002                     	ds	4
-  1226   000006                     isr@c:
+  1226   000006                     fonc@c:
   1227                           	callstack 0
   1228                           
   1229                           ; 1 bytes @ 0x5
@@ -1262,14 +1262,14 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1248 ;;
   1249 ;; *************** function _main *****************
   1250 ;; Defined at:
-  1251 ;;		line 96 in file "EXO7.c"
+  1251 ;;		line 95 in file "EXO7.c"
   1252 ;; Parameters:    Size  Location     Type
   1253 ;;		None
   1254 ;; Auto vars:     Size  Location     Type
   1255 ;;  tick50_rb5      1    9[COMRAM] unsigned char 
   1256 ;;  tick50_rc2      1    8[COMRAM] unsigned char 
   1257 ;; Return value:  Size  Location     Type
-  1258 ;;                  2   92[None  ] int 
+  1258 ;;                  2   96[None  ] int 
   1259 ;; Registers used:
   1260 ;;		wreg, status,2, status,0, cstack
   1261 ;; Tracked objects:
@@ -1296,78 +1296,78 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1277 ;;
   1278                           
   1279                           	psect	text0
-  1280   001144                     __ptext0:
+  1280   001164                     __ptext0:
   1281                           	callstack 0
-  1282   001144                     _main:
+  1282   001164                     _main:
   1283                           	callstack 28
-  1284   001144                     
-  1285                           ;EXO7.c: 98:     init_hw();
-  1286   001144  ECD3  F008         	call	_init_hw	;wreg free
-  1287   001148                     
-  1288                           ;EXO7.c: 101:     uint8_t tick50_rc2 = 0;
-  1289   001148  6A09               	clrf	main@tick50_rc2^0,c
-  1290   00114A                     l954:
+  1284   001164                     
+  1285                           ;EXO7.c: 97:     init_hw();
+  1286   001164  ECE3  F008         	call	_init_hw	;wreg free
+  1287   001168                     
+  1288                           ;EXO7.c: 99:     uint8_t tick50_rc2 = 0;
+  1289   001168  6A09               	clrf	main@tick50_rc2^0,c
+  1290   00116A                     l958:
   1291                           
-  1292                           ;EXO7.c: 102:     uint8_t tick50_rb5 = 0;
-  1293   00114A  6A0A               	clrf	main@tick50_rb5^0,c
-  1294   00114C                     l956:
+  1292                           ;EXO7.c: 100:     uint8_t tick50_rb5 = 0;
+  1293   00116A  6A0A               	clrf	main@tick50_rb5^0,c
+  1294   00116C                     l960:
   1295                           
-  1296                           ;EXO7.c: 105:         _delay((unsigned long)((50)*(64000000UL/4000.0)));
-  1297   00114C  0E05               	movlw	5
-  1298   00114E  6E08               	movwf	(??_main+1)^0,c
-  1299   001150  0E0F               	movlw	15
-  1300   001152  6E07               	movwf	??_main^0,c
-  1301   001154  0EF1               	movlw	241
-  1302   001156                     u247:
-  1303   001156  2EE8               	decfsz	wreg,f,c
-  1304   001158  D7FE               	bra	u247
-  1305   00115A  2E07               	decfsz	??_main^0,f,c
-  1306   00115C  D7FC               	bra	u247
-  1307   00115E  2E08               	decfsz	(??_main+1)^0,f,c
-  1308   001160  D7FA               	bra	u247
-  1309   001162  0000               	nop	
-  1310   001164                     
-  1311                           ;EXO7.c: 108:         if (++tick50_rc2 >= 40) {
-  1312   001164  2A09               	incf	main@tick50_rc2^0,f,c
-  1313   001166  0E27               	movlw	39
-  1314   001168  6409               	cpfsgt	main@tick50_rc2^0,c
-  1315   00116A  EFB9  F008         	goto	u111
-  1316   00116E  EFBB  F008         	goto	u110
-  1317   001172                     u111:
-  1318   001172  EFBD  F008         	goto	l964
-  1319   001176                     u110:
-  1320   001176                     
-  1321                           ;EXO7.c: 109:             PORTCbits.RC2 ^= 1;
-  1322   001176  74CC               	btg	204,2,c	;volatile
-  1323   001178                     
-  1324                           ;EXO7.c: 110:             tick50_rc2 = 0;
-  1325   001178  6A09               	clrf	main@tick50_rc2^0,c
-  1326   00117A                     l964:
+  1296                           ;EXO7.c: 103:         _delay((unsigned long)((50)*(64000000UL/4000.0)));
+  1297   00116C  0E05               	movlw	5
+  1298   00116E  6E08               	movwf	(??_main+1)^0,c
+  1299   001170  0E0F               	movlw	15
+  1300   001172  6E07               	movwf	??_main^0,c
+  1301   001174  0EF1               	movlw	241
+  1302   001176                     u287:
+  1303   001176  2EE8               	decfsz	wreg,f,c
+  1304   001178  D7FE               	bra	u287
+  1305   00117A  2E07               	decfsz	??_main^0,f,c
+  1306   00117C  D7FC               	bra	u287
+  1307   00117E  2E08               	decfsz	(??_main+1)^0,f,c
+  1308   001180  D7FA               	bra	u287
+  1309   001182  0000               	nop	
+  1310   001184                     
+  1311                           ;EXO7.c: 106:         if (++tick50_rc2 >= 40) {
+  1312   001184  2A09               	incf	main@tick50_rc2^0,f,c
+  1313   001186  0E27               	movlw	39
+  1314   001188  6409               	cpfsgt	main@tick50_rc2^0,c
+  1315   00118A  EFC9  F008         	goto	u131
+  1316   00118E  EFCB  F008         	goto	u130
+  1317   001192                     u131:
+  1318   001192  EFCD  F008         	goto	l968
+  1319   001196                     u130:
+  1320   001196                     
+  1321                           ;EXO7.c: 107:             PORTCbits.RC2 ^= 1;
+  1322   001196  74CC               	btg	204,2,c	;volatile
+  1323   001198                     
+  1324                           ;EXO7.c: 108:             tick50_rc2 = 0;
+  1325   001198  6A09               	clrf	main@tick50_rc2^0,c
+  1326   00119A                     l968:
   1327                           
-  1328                           ;EXO7.c: 114:         if (blink_rb5) {
-  1329   00117A  500C               	movf	_blink_rb5^0,w,c	;volatile
-  1330   00117C  B4D8               	btfsc	status,2,c
-  1331   00117E  EFC3  F008         	goto	u121
-  1332   001182  EFC5  F008         	goto	u120
-  1333   001186                     u121:
-  1334   001186  EFA5  F008         	goto	l954
-  1335   00118A                     u120:
-  1336   00118A                     
-  1337                           ;EXO7.c: 115:             if (++tick50_rb5 >= 20) {
-  1338   00118A  2A0A               	incf	main@tick50_rb5^0,f,c
-  1339   00118C  0E13               	movlw	19
-  1340   00118E  640A               	cpfsgt	main@tick50_rb5^0,c
-  1341   001190  EFCC  F008         	goto	u131
-  1342   001194  EFCE  F008         	goto	u130
-  1343   001198                     u131:
-  1344   001198  EFA6  F008         	goto	l956
-  1345   00119C                     u130:
-  1346   00119C                     
-  1347                           ;EXO7.c: 116:                 PORTBbits.RB5 ^= 1;
-  1348   00119C  7ACB               	btg	203,5,c	;volatile
-  1349   00119E  EFA5  F008         	goto	l954
-  1350   0011A2  EF0D  F000         	goto	start
-  1351   0011A6                     __end_of_main:
+  1328                           ;EXO7.c: 112:         if (blink_rb5) {
+  1329   00119A  500C               	movf	_blink_rb5^0,w,c	;volatile
+  1330   00119C  B4D8               	btfsc	status,2,c
+  1331   00119E  EFD3  F008         	goto	u141
+  1332   0011A2  EFD5  F008         	goto	u140
+  1333   0011A6                     u141:
+  1334   0011A6  EFB5  F008         	goto	l958
+  1335   0011AA                     u140:
+  1336   0011AA                     
+  1337                           ;EXO7.c: 113:             if (++tick50_rb5 >= 20) {
+  1338   0011AA  2A0A               	incf	main@tick50_rb5^0,f,c
+  1339   0011AC  0E13               	movlw	19
+  1340   0011AE  640A               	cpfsgt	main@tick50_rb5^0,c
+  1341   0011B0  EFDC  F008         	goto	u151
+  1342   0011B4  EFDE  F008         	goto	u150
+  1343   0011B8                     u151:
+  1344   0011B8  EFB6  F008         	goto	l960
+  1345   0011BC                     u150:
+  1346   0011BC                     
+  1347                           ;EXO7.c: 114:                 PORTBbits.RB5 ^= 1;
+  1348   0011BC  7ACB               	btg	203,5,c	;volatile
+  1349   0011BE  EFB5  F008         	goto	l958
+  1350   0011C2  EF0D  F000         	goto	start
+  1351   0011C6                     __end_of_main:
   1352                           	callstack 0
   1353                           
   1354 ;; *************** function _init_hw *****************
@@ -1406,105 +1406,105 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1382 ;;
   1383                           
   1384                           	psect	text1
-  1385   0011A6                     __ptext1:
+  1385   0011C6                     __ptext1:
   1386                           	callstack 0
-  1387   0011A6                     _init_hw:
+  1387   0011C6                     _init_hw:
   1388                           	callstack 28
-  1389   0011A6                     
+  1389   0011C6                     
   1390                           ;EXO7.c: 42:     TRISA = 0b11000000;
-  1391   0011A6  0EC0               	movlw	192
-  1392   0011A8  6EC2               	movwf	194,c	;volatile
+  1391   0011C6  0EC0               	movlw	192
+  1392   0011C8  6EC2               	movwf	194,c	;volatile
   1393                           
   1394                           ;EXO7.c: 43:     TRISB = 0b10000000;
-  1395   0011AA  0E80               	movlw	128
-  1396   0011AC  6EC3               	movwf	195,c	;volatile
+  1395   0011CA  0E80               	movlw	128
+  1396   0011CC  6EC3               	movwf	195,c	;volatile
   1397                           
   1398                           ;EXO7.c: 44:     TRISC = 0b00000011;
-  1399   0011AE  0E03               	movlw	3
-  1400   0011B0  6EC4               	movwf	196,c	;volatile
-  1401   0011B2                     
+  1399   0011CE  0E03               	movlw	3
+  1400   0011D0  6EC4               	movwf	196,c	;volatile
+  1401   0011D2                     
   1402                           ;EXO7.c: 45:     ANSELA = 0; ANSELB = 0; ANSELC = 0;
-  1403   0011B2  013A               	movlb	58	; () banked
-  1404   0011B4  6B40               	clrf	64,b	;volatile
-  1405   0011B6                     
+  1403   0011D2  013A               	movlb	58	; () banked
+  1404   0011D4  6B40               	clrf	64,b	;volatile
+  1405   0011D6                     
   1406                           ; BSR set to: 58
-  1407   0011B6  6B50               	clrf	80,b	;volatile
-  1408   0011B8                     
+  1407   0011D6  6B50               	clrf	80,b	;volatile
+  1408   0011D8                     
   1409                           ; BSR set to: 58
-  1410   0011B8  6B60               	clrf	96,b	;volatile
-  1411   0011BA                     
+  1410   0011D8  6B60               	clrf	96,b	;volatile
+  1411   0011DA                     
   1412                           ; BSR set to: 58
   1413                           ;EXO7.c: 46:     PORTB = 0; PORTC = 0;
-  1414   0011BA  6ACB               	clrf	203,c	;volatile
-  1415   0011BC                     
+  1414   0011DA  6ACB               	clrf	203,c	;volatile
+  1415   0011DC                     
   1416                           ; BSR set to: 58
-  1417   0011BC  6ACC               	clrf	204,c	;volatile
+  1417   0011DC  6ACC               	clrf	204,c	;volatile
   1418                           
   1419                           ;EXO7.c: 49:     U2RXPPS = 0b00001111;
-  1420   0011BE  0E0F               	movlw	15
-  1421   0011C0  6FEA               	movwf	234,b	;volatile
+  1420   0011DE  0E0F               	movlw	15
+  1421   0011E0  6FEA               	movwf	234,b	;volatile
   1422                           
   1423                           ;EXO7.c: 50:     RB6PPS = 0b00010110;
-  1424   0011C2  0E16               	movlw	22
-  1425   0011C4  6F0E               	movwf	14,b	;volatile
+  1424   0011E2  0E16               	movlw	22
+  1425   0011E4  6F0E               	movwf	14,b	;volatile
   1426                           
   1427                           ;EXO7.c: 53:     U2CON0 = 0b10100000;
-  1428   0011C6  0EA0               	movlw	160
-  1429   0011C8  013D               	movlb	61	; () banked
-  1430   0011CA  6FDA               	movwf	218,b	;volatile
+  1428   0011E6  0EA0               	movlw	160
+  1429   0011E8  013D               	movlb	61	; () banked
+  1430   0011EA  6FDA               	movwf	218,b	;volatile
   1431                           
   1432                           ;EXO7.c: 54:     U2CON1 = 0b10000000;
-  1433   0011CC  0E80               	movlw	128
-  1434   0011CE  6FDB               	movwf	219,b	;volatile
-  1435   0011D0                     
+  1433   0011EC  0E80               	movlw	128
+  1434   0011EE  6FDB               	movwf	219,b	;volatile
+  1435   0011F0                     
   1436                           ; BSR set to: 61
   1437                           ;EXO7.c: 55:     U2CON2 = 0;
-  1438   0011D0  6BDC               	clrf	220,b	;volatile
+  1438   0011F0  6BDC               	clrf	220,b	;volatile
   1439                           
   1440                           ;EXO7.c: 56:     U2BRG = 1666;
-  1441   0011D2  0E06               	movlw	6
-  1442   0011D4  6FDE               	movwf	222,b	;volatile
-  1443   0011D6  0E82               	movlw	130
-  1444   0011D8  6FDD               	movwf	221,b	;volatile
+  1441   0011F2  0E06               	movlw	6
+  1442   0011F4  6FDE               	movwf	222,b	;volatile
+  1443   0011F6  0E82               	movlw	130
+  1444   0011F8  6FDD               	movwf	221,b	;volatile
   1445                           
   1446                           ;EXO7.c: 59:     INTCON0 = 0b10000000;
-  1447   0011DA  0E80               	movlw	128
-  1448   0011DC  6ED2               	movwf	210,c	;volatile
+  1447   0011FA  0E80               	movlw	128
+  1448   0011FC  6ED2               	movwf	210,c	;volatile
   1449                           
   1450                           ;EXO7.c: 60:     PIE0 = 0b10000000;
-  1451   0011DE  0E80               	movlw	128
-  1452   0011E0  0139               	movlb	57	; () banked
-  1453   0011E2  6F90               	movwf	144,b	;volatile
+  1451   0011FE  0E80               	movlw	128
+  1452   001200  0139               	movlb	57	; () banked
+  1453   001202  6F90               	movwf	144,b	;volatile
   1454                           
   1455                           ;EXO7.c: 61:     IOCCN = 0b00000001;
-  1456   0011E4  0E01               	movlw	1
-  1457   0011E6  013A               	movlb	58	; () banked
-  1458   0011E8  6F66               	movwf	102,b	;volatile
-  1459   0011EA                     
+  1456   001204  0E01               	movlw	1
+  1457   001206  013A               	movlb	58	; () banked
+  1458   001208  6F66               	movwf	102,b	;volatile
+  1459   00120A                     
   1460                           ; BSR set to: 58
   1461                           ;EXO7.c: 62:     IOCCF = 0;
-  1462   0011EA  6B67               	clrf	103,b	;volatile
-  1463   0011EC                     
+  1462   00120A  6B67               	clrf	103,b	;volatile
+  1463   00120C                     
   1464                           ; BSR set to: 58
   1465                           ;EXO7.c: 65:     PIR7bits.U2RXIF = 0;
-  1466   0011EC  0139               	movlb	57	; () banked
-  1467   0011EE  99A7               	bcf	167,4,b	;volatile
-  1468   0011F0                     
+  1466   00120C  0139               	movlb	57	; () banked
+  1467   00120E  99A7               	bcf	167,4,b	;volatile
+  1468   001210                     
   1469                           ; BSR set to: 57
   1470                           ;EXO7.c: 66:     PIE7bits.U2RXIE = 1;
-  1471   0011F0  8997               	bsf	151,4,b	;volatile
-  1472   0011F2                     
+  1471   001210  8997               	bsf	151,4,b	;volatile
+  1472   001212                     
   1473                           ; BSR set to: 57
   1474                           ;EXO7.c: 69:     U2CON0bits.RXEN = 1;
-  1475   0011F2  013D               	movlb	61	; () banked
-  1476   0011F4  89DA               	bsf	218,4,b	;volatile
-  1477   0011F6                     
+  1475   001212  013D               	movlb	61	; () banked
+  1476   001214  89DA               	bsf	218,4,b	;volatile
+  1477   001216                     
   1478                           ; BSR set to: 61
-  1479   0011F6  0012               	return		;funcret
-  1480   0011F8                     __end_of_init_hw:
+  1479   001216  0012               	return		;funcret
+  1480   001218                     __end_of_init_hw:
   1481                           	callstack 0
   1482                           
-  1483 ;; *************** function _isr *****************
+  1483 ;; *************** function _fonc *****************
   1484 ;; Defined at:
   1485 ;;		line 72 in file "EXO7.c"
   1486 ;; Parameters:    Size  Location     Type
@@ -1542,33 +1542,33 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1513                           	psect	text2
   1514   001010                     __ptext2:
   1515                           	callstack 0
-  1516   001010                     _isr:
+  1516   001010                     _fonc:
   1517                           	callstack 28
   1518                           
   1519                           ; BSR set to: 61
   1520                           ;incstack = 0
-  1521   001010  006F FFD8  F002    	movff	tblptrl,??_isr
-  1522   001016  006F FFDC  F003    	movff	tblptrh,??_isr+1
-  1523   00101C  006F FFE0  F004    	movff	tblptru,??_isr+2
-  1524   001022  006F FFD4  F005    	movff	tablat,??_isr+3
+  1521   001010  006F FFD8  F002    	movff	tblptrl,??_fonc
+  1522   001016  006F FFDC  F003    	movff	tblptrh,??_fonc+1
+  1523   00101C  006F FFE0  F004    	movff	tblptru,??_fonc+2
+  1524   001022  006F FFD4  F005    	movff	tablat,??_fonc+3
   1525   001028                     
   1526                           ;EXO7.c: 75:     if (PIR0bits.IOCIF && IOCCFbits.IOCCF0) {
   1527   001028  0139               	movlb	57	; () banked
   1528   00102A  AFA0               	btfss	160,7,b	;volatile
-  1529   00102C  EF1A  F008         	goto	i2u18_41
-  1530   001030  EF1C  F008         	goto	i2u18_40
-  1531   001034                     i2u18_41:
-  1532   001034  EF2B  F008         	goto	i2l994
-  1533   001038                     i2u18_40:
+  1529   00102C  EF1A  F008         	goto	i2u20_41
+  1530   001030  EF1C  F008         	goto	i2u20_40
+  1531   001034                     i2u20_41:
+  1532   001034  EF29  F008         	goto	i2l996
+  1533   001038                     i2u20_40:
   1534   001038                     
   1535                           ; BSR set to: 57
   1536   001038  013A               	movlb	58	; () banked
   1537   00103A  A167               	btfss	103,0,b	;volatile
-  1538   00103C  EF22  F008         	goto	i2u19_41
-  1539   001040  EF24  F008         	goto	i2u19_40
-  1540   001044                     i2u19_41:
-  1541   001044  EF2B  F008         	goto	i2l994
-  1542   001048                     i2u19_40:
+  1538   00103C  EF22  F008         	goto	i2u21_41
+  1539   001040  EF24  F008         	goto	i2u21_40
+  1540   001044                     i2u21_41:
+  1541   001044  EF29  F008         	goto	i2l996
+  1542   001048                     i2u21_40:
   1543   001048                     
   1544                           ; BSR set to: 58
   1545                           ;EXO7.c: 76:         IOCCFbits.IOCCF0 = 0;
@@ -1578,385 +1578,403 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   1549                           ;EXO7.c: 77:         bt_send_str("RC0");
   1550   00104A  0E0B               	movlw	low STR_1
   1551   00104C  6E01               	movwf	bt_send_str@s^0,c
-  1552   00104E  EC6C  F008         	call	_bt_send_str	;wreg free
-  1553   001052                     
-  1554                           ;EXO7.c: 78:         PIR0bits.IOCIF = 0;
-  1555   001052  0139               	movlb	57	; () banked
-  1556   001054  9FA0               	bcf	160,7,b	;volatile
-  1557   001056                     i2l994:
-  1558                           
-  1559                           ;EXO7.c: 82:     if (PIE7bits.U2RXIE && PIR7bits.U2RXIF) {
-  1560   001056  0139               	movlb	57	; () banked
-  1561   001058  A997               	btfss	151,4,b	;volatile
-  1562   00105A  EF31  F008         	goto	i2u20_41
-  1563   00105E  EF33  F008         	goto	i2u20_40
-  1564   001062                     i2u20_41:
-  1565   001062  EF5F  F008         	goto	i2l88
-  1566   001066                     i2u20_40:
-  1567   001066                     
-  1568                           ; BSR set to: 57
-  1569   001066  A9A7               	btfss	167,4,b	;volatile
-  1570   001068  EF38  F008         	goto	i2u21_41
-  1571   00106C  EF3A  F008         	goto	i2u21_40
-  1572   001070                     i2u21_41:
-  1573   001070  EF5F  F008         	goto	i2l88
-  1574   001074                     i2u21_40:
-  1575   001074                     
+  1552   00104E  EC7C  F008         	call	_bt_send_str	;wreg free
+  1553   001052                     i2l996:
+  1554                           
+  1555                           ;EXO7.c: 81:     if (PIE7bits.U2RXIE && PIR7bits.U2RXIF) {
+  1556   001052  0139               	movlb	57	; () banked
+  1557   001054  A997               	btfss	151,4,b	;volatile
+  1558   001056  EF2F  F008         	goto	i2u22_41
+  1559   00105A  EF31  F008         	goto	i2u22_40
+  1560   00105E                     i2u22_41:
+  1561   00105E  EF6F  F008         	goto	i2l92
+  1562   001062                     i2u22_40:
+  1563   001062                     
+  1564                           ; BSR set to: 57
+  1565   001062  A9A7               	btfss	167,4,b	;volatile
+  1566   001064  EF36  F008         	goto	i2u23_41
+  1567   001068  EF38  F008         	goto	i2u23_40
+  1568   00106C                     i2u23_41:
+  1569   00106C  EF6F  F008         	goto	i2l92
+  1570   001070                     i2u23_40:
+  1571   001070                     
+  1572                           ; BSR set to: 57
+  1573                           ;EXO7.c: 82:         uint8_t c = U2RXB;
+  1574   001070  006F F740  F006    	movff	15824,fonc@c	;volatile
+  1575   001076                     
   1576                           ; BSR set to: 57
-  1577                           ;EXO7.c: 83:         uint8_t c = U2RXB;
-  1578   001074  006F F740  F006    	movff	15824,isr@c	;volatile
-  1579   00107A                     
-  1580                           ; BSR set to: 57
-  1581                           ;EXO7.c: 84:         if (c == 'A') {
-  1582   00107A  0E41               	movlw	65
-  1583   00107C  1806               	xorwf	isr@c^0,w,c
-  1584   00107E  A4D8               	btfss	status,2,c
-  1585   001080  EF44  F008         	goto	i2u22_41
-  1586   001084  EF46  F008         	goto	i2u22_40
-  1587   001088                     i2u22_41:
-  1588   001088  EF4E  F008         	goto	i2l1006
-  1589   00108C                     i2u22_40:
-  1590   00108C                     
-  1591                           ; BSR set to: 57
-  1592                           ;EXO7.c: 85:             blink_rb5 = 1;
-  1593   00108C  0E01               	movlw	1
-  1594   00108E  6E0C               	movwf	_blink_rb5^0,c	;volatile
-  1595   001090                     
-  1596                           ; BSR set to: 57
-  1597                           ;EXO7.c: 86:             bt_send_str("OK_A");
-  1598   001090  0E01               	movlw	low STR_2
-  1599   001092  6E01               	movwf	bt_send_str@s^0,c
-  1600   001094  EC6C  F008         	call	_bt_send_str	;wreg free
-  1601                           
-  1602                           ;EXO7.c: 87:         } else if (c == 'B') {
-  1603   001098  EF5D  F008         	goto	i2l1012
-  1604   00109C                     i2l1006:
-  1605                           
-  1606                           ; BSR set to: 57
-  1607   00109C  0E42               	movlw	66
-  1608   00109E  1806               	xorwf	isr@c^0,w,c
-  1609   0010A0  A4D8               	btfss	status,2,c
-  1610   0010A2  EF55  F008         	goto	i2u23_41
-  1611   0010A6  EF57  F008         	goto	i2u23_40
-  1612   0010AA                     i2u23_41:
-  1613   0010AA  EF5D  F008         	goto	i2l1012
-  1614   0010AE                     i2u23_40:
-  1615   0010AE                     
-  1616                           ; BSR set to: 57
-  1617                           ;EXO7.c: 88:             blink_rb5 = 0;
-  1618   0010AE  6A0C               	clrf	_blink_rb5^0,c	;volatile
-  1619                           
-  1620                           ;EXO7.c: 89:             PORTBbits.RB5 = 0;
-  1621   0010B0  9ACB               	bcf	203,5,c	;volatile
-  1622   0010B2                     
+  1577                           ;EXO7.c: 83:         if (c == 'A' || c == 'a') {
+  1578   001076  0E41               	movlw	65
+  1579   001078  1806               	xorwf	fonc@c^0,w,c
+  1580   00107A  B4D8               	btfsc	status,2,c
+  1581   00107C  EF42  F008         	goto	i2u24_41
+  1582   001080  EF44  F008         	goto	i2u24_40
+  1583   001084                     i2u24_41:
+  1584   001084  EF4D  F008         	goto	i2l1006
+  1585   001088                     i2u24_40:
+  1586   001088                     
+  1587                           ; BSR set to: 57
+  1588   001088  0E61               	movlw	97
+  1589   00108A  1806               	xorwf	fonc@c^0,w,c
+  1590   00108C  A4D8               	btfss	status,2,c
+  1591   00108E  EF4B  F008         	goto	i2u25_41
+  1592   001092  EF4D  F008         	goto	i2u25_40
+  1593   001096                     i2u25_41:
+  1594   001096  EF55  F008         	goto	i2l1010
+  1595   00109A                     i2u25_40:
+  1596   00109A                     i2l1006:
+  1597                           
+  1598                           ; BSR set to: 57
+  1599                           ;EXO7.c: 84:             blink_rb5 = 1;
+  1600   00109A  0E01               	movlw	1
+  1601   00109C  6E0C               	movwf	_blink_rb5^0,c	;volatile
+  1602   00109E                     
+  1603                           ; BSR set to: 57
+  1604                           ;EXO7.c: 85:             bt_send_str("OK_A");
+  1605   00109E  0E01               	movlw	low STR_2
+  1606   0010A0  6E01               	movwf	bt_send_str@s^0,c
+  1607   0010A2  EC7C  F008         	call	_bt_send_str	;wreg free
+  1608                           
+  1609                           ;EXO7.c: 86:         } else if (c == 'B' || c == 'b') {
+  1610   0010A6  EF6D  F008         	goto	i2l1016
+  1611   0010AA                     i2l1010:
+  1612                           
+  1613                           ; BSR set to: 57
+  1614   0010AA  0E42               	movlw	66
+  1615   0010AC  1806               	xorwf	fonc@c^0,w,c
+  1616   0010AE  B4D8               	btfsc	status,2,c
+  1617   0010B0  EF5C  F008         	goto	i2u26_41
+  1618   0010B4  EF5E  F008         	goto	i2u26_40
+  1619   0010B8                     i2u26_41:
+  1620   0010B8  EF67  F008         	goto	i2l91
+  1621   0010BC                     i2u26_40:
+  1622   0010BC                     
   1623                           ; BSR set to: 57
-  1624                           ;EXO7.c: 90:             bt_send_str("OK_B");
-  1625   0010B2  0E06               	movlw	low STR_3
-  1626   0010B4  6E01               	movwf	bt_send_str@s^0,c
-  1627   0010B6  EC6C  F008         	call	_bt_send_str	;wreg free
-  1628   0010BA                     i2l1012:
-  1629                           
-  1630                           ;EXO7.c: 92:         PIR7bits.U2RXIF = 0;
-  1631   0010BA  0139               	movlb	57	; () banked
-  1632   0010BC  99A7               	bcf	167,4,b	;volatile
-  1633   0010BE                     i2l88:
-  1634                           
-  1635                           ; BSR set to: 57
-  1636   0010BE  0060  F017  FFF5   	movff	??_isr+3,tablat
-  1637   0010C4  0060  F013  FFF8   	movff	??_isr+2,tblptru
-  1638   0010CA  0060  F00F  FFF7   	movff	??_isr+1,tblptrh
-  1639   0010D0  0060  F00B  FFF6   	movff	??_isr,tblptrl
-  1640   0010D6  0011               	retfie		f
-  1641   0010D8                     __end_of_isr:
-  1642                           	callstack 0
-  1643                           
-  1644 ;; *************** function _bt_send_str *****************
-  1645 ;; Defined at:
-  1646 ;;		line 28 in file "EXO7.c"
-  1647 ;; Parameters:    Size  Location     Type
-  1648 ;;  s               1    0[COMRAM] PTR const unsigned char 
-  1649 ;;		 -> STR_3(5), STR_2(5), STR_1(4), 
-  1650 ;; Auto vars:     Size  Location     Type
-  1651 ;;		None
-  1652 ;; Return value:  Size  Location     Type
-  1653 ;;                  1    wreg      void 
-  1654 ;; Registers used:
-  1655 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru
-  1656 ;; Tracked objects:
-  1657 ;;		On entry : 0/0
-  1658 ;;		On exit  : 0/0
-  1659 ;;		Unchanged: 0/0
-  1660 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+  1624   0010BC  0E62               	movlw	98
+  1625   0010BE  1806               	xorwf	fonc@c^0,w,c
+  1626   0010C0  A4D8               	btfss	status,2,c
+  1627   0010C2  EF65  F008         	goto	i2u27_41
+  1628   0010C6  EF67  F008         	goto	i2u27_40
+  1629   0010CA                     i2u27_41:
+  1630   0010CA  EF6D  F008         	goto	i2l1016
+  1631   0010CE                     i2u27_40:
+  1632   0010CE                     i2l91:
+  1633                           
+  1634                           ; BSR set to: 57
+  1635                           ;EXO7.c: 87:             blink_rb5 = 0;
+  1636   0010CE  6A0C               	clrf	_blink_rb5^0,c	;volatile
+  1637                           
+  1638                           ;EXO7.c: 88:             PORTBbits.RB5 = 0;
+  1639   0010D0  9ACB               	bcf	203,5,c	;volatile
+  1640   0010D2                     
+  1641                           ; BSR set to: 57
+  1642                           ;EXO7.c: 89:             bt_send_str("OK_B");
+  1643   0010D2  0E06               	movlw	low STR_3
+  1644   0010D4  6E01               	movwf	bt_send_str@s^0,c
+  1645   0010D6  EC7C  F008         	call	_bt_send_str	;wreg free
+  1646   0010DA                     i2l1016:
+  1647                           
+  1648                           ;EXO7.c: 91:         PIR7bits.U2RXIF = 0;
+  1649   0010DA  0139               	movlb	57	; () banked
+  1650   0010DC  99A7               	bcf	167,4,b	;volatile
+  1651   0010DE                     i2l92:
+  1652                           
+  1653                           ; BSR set to: 57
+  1654   0010DE  0060  F017  FFF5   	movff	??_fonc+3,tablat
+  1655   0010E4  0060  F013  FFF8   	movff	??_fonc+2,tblptru
+  1656   0010EA  0060  F00F  FFF7   	movff	??_fonc+1,tblptrh
+  1657   0010F0  0060  F00B  FFF6   	movff	??_fonc,tblptrl
+  1658   0010F6  0011               	retfie		f
+  1659   0010F8                     __end_of_fonc:
+  1660                           	callstack 0
+  1661                           
+  1662 ;; *************** function _bt_send_str *****************
+  1663 ;; Defined at:
+  1664 ;;		line 28 in file "EXO7.c"
+  1665 ;; Parameters:    Size  Location     Type
+  1666 ;;  s               1    0[COMRAM] PTR const unsigned char 
+  1667 ;;		 -> STR_3(5), STR_2(5), STR_1(4), 
+  1668 ;; Auto vars:     Size  Location     Type
+  1669 ;;		None
+  1670 ;; Return value:  Size  Location     Type
+  1671 ;;                  1    wreg      void 
+  1672 ;; Registers used:
+  1673 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru
+  1674 ;; Tracked objects:
+  1675 ;;		On entry : 0/0
+  1676 ;;		On exit  : 0/0
+  1677 ;;		Unchanged: 0/0
+  1678 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-  1661 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+  1679 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-  1662 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1680 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-  1663 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+  1681 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-  1664 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+  1682 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-  1665 ;;Total ram usage:        1 bytes
-  1666 ;; Hardware stack levels used: 1
-  1667 ;; This function calls:
-  1668 ;;		Nothing
-  1669 ;; This function is called by:
-  1670 ;;		_isr
-  1671 ;; This function uses a non-reentrant model
-  1672 ;;
-  1673                           
-  1674                           	psect	text3
-  1675   0010D8                     __ptext3:
-  1676                           	callstack 0
-  1677   0010D8                     _bt_send_str:
-  1678                           	callstack 28
-  1679   0010D8                     
-  1680                           ;EXO7.c: 29:     while (*s) {
-  1681   0010D8  EF7E  F008         	goto	i2l978
-  1682   0010DC                     i2l65:
-  1683   0010DC  0139               	movlb	57	; () banked
-  1684   0010DE  ABA7               	btfss	167,5,b	;volatile
-  1685   0010E0  EF74  F008         	goto	i2u14_41
-  1686   0010E4  EF76  F008         	goto	i2u14_40
-  1687   0010E8                     i2u14_41:
-  1688   0010E8  EF6E  F008         	goto	i2l65
-  1689   0010EC                     i2u14_40:
-  1690   0010EC                     
-  1691                           ; BSR set to: 57
-  1692                           ;EXO7.c: 31:         U2TXB = *s++;
-  1693   0010EC  0060  F007  FFF6   	movff	bt_send_str@s,tblptrl
-  1694   0010F2                     	if	0	;There is only one active tblptr byte
-  1695   0010F2                     	endif
-  1696   0010F2                     	if	0	;tblptru may be non-zero
-  1697   0010F2                     	endif
-  1698   0010F2                     	if	0	;tblptru may be non-zero
-  1699   0010F2                     	endif
-  1700   0010F2  0008               	tblrd		*
-  1701   0010F4  006F FFD7 FDD2     	movff	tablat,15826	;volatile
-  1702   0010FA                     
-  1703                           ; BSR set to: 57
-  1704   0010FA  2A01               	incf	bt_send_str@s^0,f,c
-  1705   0010FC                     i2l978:
-  1706                           
-  1707                           ;EXO7.c: 29:     while (*s) {
-  1708   0010FC  0060  F007  FFF6   	movff	bt_send_str@s,tblptrl
-  1709   001102                     	if	0	;There is only one active tblptr byte
-  1710   001102                     	endif
-  1711   001102                     	if	0	;tblptru may be non-zero
-  1712   001102                     	endif
-  1713   001102                     	if	0	;tblptru may be non-zero
-  1714   001102                     	endif
-  1715   001102  0008               	tblrd		*
-  1716   001104  50F5               	movf	tablat,w,c
-  1717   001106  0900               	iorlw	0
-  1718   001108  A4D8               	btfss	status,2,c
-  1719   00110A  EF89  F008         	goto	i2u15_41
-  1720   00110E  EF8B  F008         	goto	i2u15_40
-  1721   001112                     i2u15_41:
-  1722   001112  EF6E  F008         	goto	i2l65
-  1723   001116                     i2u15_40:
-  1724   001116                     i2l69:
-  1725   001116  0139               	movlb	57	; () banked
-  1726   001118  ABA7               	btfss	167,5,b	;volatile
-  1727   00111A  EF91  F008         	goto	i2u16_41
-  1728   00111E  EF93  F008         	goto	i2u16_40
-  1729   001122                     i2u16_41:
-  1730   001122  EF8B  F008         	goto	i2l69
-  1731   001126                     i2u16_40:
-  1732   001126                     
-  1733                           ; BSR set to: 57
-  1734                           ;EXO7.c: 34:     U2TXB = '\r';
-  1735   001126  0E0D               	movlw	13
-  1736   001128  013D               	movlb	61	; () banked
-  1737   00112A  6FD2               	movwf	210,b	;volatile
-  1738   00112C                     i2l72:
-  1739   00112C  0139               	movlb	57	; () banked
-  1740   00112E  ABA7               	btfss	167,5,b	;volatile
-  1741   001130  EF9C  F008         	goto	i2u17_41
-  1742   001134  EF9E  F008         	goto	i2u17_40
-  1743   001138                     i2u17_41:
-  1744   001138  EF96  F008         	goto	i2l72
-  1745   00113C                     i2u17_40:
-  1746   00113C                     
-  1747                           ; BSR set to: 57
-  1748                           ;EXO7.c: 36:     U2TXB = '\n';
-  1749   00113C  0E0A               	movlw	10
-  1750   00113E  013D               	movlb	61	; () banked
-  1751   001140  6FD2               	movwf	210,b	;volatile
-  1752   001142                     
-  1753                           ; BSR set to: 61
-  1754   001142  0012               	return		;funcret
-  1755   001144                     __end_of_bt_send_str:
-  1756                           	callstack 0
-  1757                           
-  1758                           ;
-  1759                           ; H/W Interrupt Vector Table @ 0x8
-  1760                           ;
-  1761                           
-  1762                           	psect	ivt0x8
-  1763   000008                     __pivt0x8:
-  1764                           	callstack 0
-  1765   000008                     ivt0x8_base:
-  1766                           	callstack 0
-  1767                           
-  1768                           ; high-priority vector
-  1769   000008  EF08  F008         	goto	_isr
-  1770   000018                     	org	16
-  1771                           
-  1772                           ; low-priority vector
-  1773   000018  00FF               	reset	
-  1774                           
-  1775                           	psect	rparam
-  1776   000001                     ___rparam_used  equ	1
-  1777   000000                     ___param_bank   equ	0
-  1778   000000                     __Lparam        equ	__Lrparam
-  1779   000000                     __Hparam        equ	__Hrparam
-  1780                           
-  1781                           	psect	config
-  1782                           
-  1783                           ;Config register CONFIG1L @ 0x300000
-  1784                           ;	External Oscillator Selection
-  1785                           ;	FEXTOSC = OFF, Oscillator not enabled
-  1786                           ;	Reset Oscillator Selection
-  1787                           ;	RSTOSC = HFINTOSC_64MHZ, HFINTOSC with HFFRQ = 64 MHz and CDIV = 1:1
-  1788   300000                     	org	3145728
-  1789   300000  8C                 	db	140
-  1790                           
-  1791                           ;Config register CONFIG1H @ 0x300001
-  1792                           ;	Clock out Enable bit
-  1793                           ;	CLKOUTEN = OFF, CLKOUT function is disabled
-  1794                           ;	PRLOCKED One-Way Set Enable bit
-  1795                           ;	PR1WAY = OFF, PRLOCK bit can be set and cleared repeatedly
-  1796                           ;	Clock Switch Enable bit
-  1797                           ;	CSWEN = ON, Writing to NOSC and NDIV is allowed
-  1798                           ;	Fail-Safe Clock Monitor Enable bit
-  1799                           ;	FCMEN = ON, Fail-Safe Clock Monitor enabled
-  1800   300001                     	org	3145729
-  1801   300001  FD                 	db	253
-  1802                           
-  1803                           ;Config register CONFIG2L @ 0x300002
-  1804                           ;	MCLR Enable bit
-  1805                           ;	MCLRE = EXTMCLR, If LVP = 0, MCLR pin is MCLR; If LVP = 1, RE3 pin function is MCLR
-  1806                           ;	Power-up timer selection bits
-  1807                           ;	PWRTS = PWRT_OFF, PWRT is disabled
-  1808                           ;	Multi-vector enable bit
-  1809                           ;	MVECEN = OFF, Interrupt contoller does not use vector table to prioritze interrupts
-  1810                           ;	IVTLOCK bit One-way set enable bit
-  1811                           ;	IVT1WAY = OFF, IVTLOCK bit can be cleared and set repeatedly
-  1812                           ;	Low Power BOR Enable bit
-  1813                           ;	LPBOREN = OFF, ULPBOR disabled
-  1814                           ;	Brown-out Reset Enable bits
-  1815                           ;	BOREN = SBORDIS, Brown-out Reset enabled , SBOREN bit is ignored
-  1816   300002                     	org	3145730
-  1817   300002  E7                 	db	231
-  1818                           
-  1819                           ;Config register CONFIG2H @ 0x300003
-  1820                           ;	Brown-out Reset Voltage Selection bits
-  1821                           ;	BORV = VBOR_2P45, Brown-out Reset Voltage (VBOR) set to 2.45V
-  1822                           ;	ZCD Disable bit
-  1823                           ;	ZCD = OFF, ZCD disabled. ZCD can be enabled by setting the ZCDSEN bit of ZCDCON
-  1824                           ;	PPSLOCK bit One-Way Set Enable bit
-  1825                           ;	PPS1WAY = OFF, PPSLOCK bit can be set and cleared repeatedly (subject to the unlock se
+  1683 ;;Total ram usage:        1 bytes
+  1684 ;; Hardware stack levels used: 1
+  1685 ;; This function calls:
+  1686 ;;		Nothing
+  1687 ;; This function is called by:
+  1688 ;;		_fonc
+  1689 ;; This function uses a non-reentrant model
+  1690 ;;
+  1691                           
+  1692                           	psect	text3
+  1693   0010F8                     __ptext3:
+  1694                           	callstack 0
+  1695   0010F8                     _bt_send_str:
+  1696                           	callstack 28
+  1697   0010F8                     
+  1698                           ;EXO7.c: 29:     while (*s) {
+  1699   0010F8  EF8E  F008         	goto	i2l982
+  1700   0010FC                     i2l65:
+  1701   0010FC  0139               	movlb	57	; () banked
+  1702   0010FE  ABA7               	btfss	167,5,b	;volatile
+  1703   001100  EF84  F008         	goto	i2u16_41
+  1704   001104  EF86  F008         	goto	i2u16_40
+  1705   001108                     i2u16_41:
+  1706   001108  EF7E  F008         	goto	i2l65
+  1707   00110C                     i2u16_40:
+  1708   00110C                     
+  1709                           ; BSR set to: 57
+  1710                           ;EXO7.c: 31:         U2TXB = *s++;
+  1711   00110C  0060  F007  FFF6   	movff	bt_send_str@s,tblptrl
+  1712   001112                     	if	0	;There is only one active tblptr byte
+  1713   001112                     	endif
+  1714   001112                     	if	0	;tblptru may be non-zero
+  1715   001112                     	endif
+  1716   001112                     	if	0	;tblptru may be non-zero
+  1717   001112                     	endif
+  1718   001112  0008               	tblrd		*
+  1719   001114  006F FFD7 FDD2     	movff	tablat,15826	;volatile
+  1720   00111A                     
+  1721                           ; BSR set to: 57
+  1722   00111A  2A01               	incf	bt_send_str@s^0,f,c
+  1723   00111C                     i2l982:
+  1724                           
+  1725                           ;EXO7.c: 29:     while (*s) {
+  1726   00111C  0060  F007  FFF6   	movff	bt_send_str@s,tblptrl
+  1727   001122                     	if	0	;There is only one active tblptr byte
+  1728   001122                     	endif
+  1729   001122                     	if	0	;tblptru may be non-zero
+  1730   001122                     	endif
+  1731   001122                     	if	0	;tblptru may be non-zero
+  1732   001122                     	endif
+  1733   001122  0008               	tblrd		*
+  1734   001124  50F5               	movf	tablat,w,c
+  1735   001126  0900               	iorlw	0
+  1736   001128  A4D8               	btfss	status,2,c
+  1737   00112A  EF99  F008         	goto	i2u17_41
+  1738   00112E  EF9B  F008         	goto	i2u17_40
+  1739   001132                     i2u17_41:
+  1740   001132  EF7E  F008         	goto	i2l65
+  1741   001136                     i2u17_40:
+  1742   001136                     i2l69:
+  1743   001136  0139               	movlb	57	; () banked
+  1744   001138  ABA7               	btfss	167,5,b	;volatile
+  1745   00113A  EFA1  F008         	goto	i2u18_41
+  1746   00113E  EFA3  F008         	goto	i2u18_40
+  1747   001142                     i2u18_41:
+  1748   001142  EF9B  F008         	goto	i2l69
+  1749   001146                     i2u18_40:
+  1750   001146                     
+  1751                           ; BSR set to: 57
+  1752                           ;EXO7.c: 34:     U2TXB = '\r';
+  1753   001146  0E0D               	movlw	13
+  1754   001148  013D               	movlb	61	; () banked
+  1755   00114A  6FD2               	movwf	210,b	;volatile
+  1756   00114C                     i2l72:
+  1757   00114C  0139               	movlb	57	; () banked
+  1758   00114E  ABA7               	btfss	167,5,b	;volatile
+  1759   001150  EFAC  F008         	goto	i2u19_41
+  1760   001154  EFAE  F008         	goto	i2u19_40
+  1761   001158                     i2u19_41:
+  1762   001158  EFA6  F008         	goto	i2l72
+  1763   00115C                     i2u19_40:
+  1764   00115C                     
+  1765                           ; BSR set to: 57
+  1766                           ;EXO7.c: 36:     U2TXB = '\n';
+  1767   00115C  0E0A               	movlw	10
+  1768   00115E  013D               	movlb	61	; () banked
+  1769   001160  6FD2               	movwf	210,b	;volatile
+  1770   001162                     
+  1771                           ; BSR set to: 61
+  1772   001162  0012               	return		;funcret
+  1773   001164                     __end_of_bt_send_str:
+  1774                           	callstack 0
+  1775                           
+  1776                           ;
+  1777                           ; H/W Interrupt Vector Table @ 0x8
+  1778                           ;
+  1779                           
+  1780                           	psect	ivt0x8
+  1781   000008                     __pivt0x8:
+  1782                           	callstack 0
+  1783   000008                     ivt0x8_base:
+  1784                           	callstack 0
+  1785                           
+  1786                           ; high-priority vector
+  1787   000008  EF08  F008         	goto	_fonc
+  1788   000018                     	org	16
+  1789                           
+  1790                           ; low-priority vector
+  1791   000018  00FF               	reset	
+  1792                           
+  1793                           	psect	rparam
+  1794   000001                     ___rparam_used  equ	1
+  1795   000000                     ___param_bank   equ	0
+  1796   000000                     __Lparam        equ	__Lrparam
+  1797   000000                     __Hparam        equ	__Hrparam
+  1798                           
+  1799                           	psect	config
+  1800                           
+  1801                           ;Config register CONFIG1L @ 0x300000
+  1802                           ;	External Oscillator Selection
+  1803                           ;	FEXTOSC = OFF, Oscillator not enabled
+  1804                           ;	Reset Oscillator Selection
+  1805                           ;	RSTOSC = HFINTOSC_64MHZ, HFINTOSC with HFFRQ = 64 MHz and CDIV = 1:1
+  1806   300000                     	org	3145728
+  1807   300000  8C                 	db	140
+  1808                           
+  1809                           ;Config register CONFIG1H @ 0x300001
+  1810                           ;	Clock out Enable bit
+  1811                           ;	CLKOUTEN = OFF, CLKOUT function is disabled
+  1812                           ;	PRLOCKED One-Way Set Enable bit
+  1813                           ;	PR1WAY = OFF, PRLOCK bit can be set and cleared repeatedly
+  1814                           ;	Clock Switch Enable bit
+  1815                           ;	CSWEN = ON, Writing to NOSC and NDIV is allowed
+  1816                           ;	Fail-Safe Clock Monitor Enable bit
+  1817                           ;	FCMEN = ON, Fail-Safe Clock Monitor enabled
+  1818   300001                     	org	3145729
+  1819   300001  FD                 	db	253
+  1820                           
+  1821                           ;Config register CONFIG2L @ 0x300002
+  1822                           ;	MCLR Enable bit
+  1823                           ;	MCLRE = EXTMCLR, If LVP = 0, MCLR pin is MCLR; If LVP = 1, RE3 pin function is MCLR
+  1824                           ;	Power-up timer selection bits
+  1825                           ;	PWRTS = PWRT_OFF, PWRT is disabled
+  1826                           ;	Multi-vector enable bit
+  1827                           ;	MVECEN = OFF, Interrupt contoller does not use vector table to prioritze interrupts
+  1828                           ;	IVTLOCK bit One-way set enable bit
+  1829                           ;	IVT1WAY = OFF, IVTLOCK bit can be cleared and set repeatedly
+  1830                           ;	Low Power BOR Enable bit
+  1831                           ;	LPBOREN = OFF, ULPBOR disabled
+  1832                           ;	Brown-out Reset Enable bits
+  1833                           ;	BOREN = SBORDIS, Brown-out Reset enabled , SBOREN bit is ignored
+  1834   300002                     	org	3145730
+  1835   300002  E7                 	db	231
+  1836                           
+  1837                           ;Config register CONFIG2H @ 0x300003
+  1838                           ;	Brown-out Reset Voltage Selection bits
+  1839                           ;	BORV = VBOR_2P45, Brown-out Reset Voltage (VBOR) set to 2.45V
+  1840                           ;	ZCD Disable bit
+  1841                           ;	ZCD = OFF, ZCD disabled. ZCD can be enabled by setting the ZCDSEN bit of ZCDCON
+  1842                           ;	PPSLOCK bit One-Way Set Enable bit
+  1843                           ;	PPS1WAY = OFF, PPSLOCK bit can be set and cleared repeatedly (subject to the unlock se
       +                          quence)
-  1826                           ;	Stack Full/Underflow Reset Enable bit
-  1827                           ;	STVREN = ON, Stack full/underflow will cause Reset
-  1828                           ;	Debugger Enable bit
-  1829                           ;	DEBUG = OFF, Background debugger disabled
-  1830                           ;	Extended Instruction Set Enable bit
-  1831                           ;	XINST = OFF, Extended Instruction Set and Indexed Addressing Mode disabled
-  1832   300003                     	org	3145731
-  1833   300003  F7                 	db	247
-  1834                           
-  1835                           ;Config register CONFIG3L @ 0x300004
-  1836                           ;	WDT Period selection bits
-  1837                           ;	WDTCPS = WDTCPS_31, Divider ratio 1:65536; software control of WDTPS
-  1838                           ;	WDT operating mode
-  1839                           ;	WDTE = OFF, WDT Disabled; SWDTEN is ignored
-  1840   300004                     	org	3145732
-  1841   300004  9F                 	db	159
-  1842                           
-  1843                           ;Config register CONFIG3H @ 0x300005
-  1844                           ;	WDT Window Select bits
-  1845                           ;	WDTCWS = WDTCWS_7, window always open (100%); software control; keyed access not requi
+  1844                           ;	Stack Full/Underflow Reset Enable bit
+  1845                           ;	STVREN = ON, Stack full/underflow will cause Reset
+  1846                           ;	Debugger Enable bit
+  1847                           ;	DEBUG = OFF, Background debugger disabled
+  1848                           ;	Extended Instruction Set Enable bit
+  1849                           ;	XINST = OFF, Extended Instruction Set and Indexed Addressing Mode disabled
+  1850   300003                     	org	3145731
+  1851   300003  F7                 	db	247
+  1852                           
+  1853                           ;Config register CONFIG3L @ 0x300004
+  1854                           ;	WDT Period selection bits
+  1855                           ;	WDTCPS = WDTCPS_31, Divider ratio 1:65536; software control of WDTPS
+  1856                           ;	WDT operating mode
+  1857                           ;	WDTE = OFF, WDT Disabled; SWDTEN is ignored
+  1858   300004                     	org	3145732
+  1859   300004  9F                 	db	159
+  1860                           
+  1861                           ;Config register CONFIG3H @ 0x300005
+  1862                           ;	WDT Window Select bits
+  1863                           ;	WDTCWS = WDTCWS_7, window always open (100%); software control; keyed access not requi
       +                          red
-  1846                           ;	WDT input clock selector
-  1847                           ;	WDTCCS = SC, Software Control
-  1848   300005                     	org	3145733
-  1849   300005  FF                 	db	255
-  1850                           
-  1851                           ;Config register CONFIG4L @ 0x300006
-  1852                           ;	Boot Block Size selection bits
-  1853                           ;	BBSIZE = BBSIZE_512, Boot Block size is 512 words
-  1854                           ;	Boot Block enable bit
-  1855                           ;	BBEN = OFF, Boot block disabled
-  1856                           ;	Storage Area Flash enable bit
-  1857                           ;	SAFEN = OFF, SAF disabled
-  1858                           ;	Application Block write protection bit
-  1859                           ;	WRTAPP = OFF, Application Block not write protected
-  1860   300006                     	org	3145734
-  1861   300006  FF                 	db	255
-  1862                           
-  1863                           ;Config register CONFIG4H @ 0x300007
-  1864                           ;	Boot Block Write Protection bit
-  1865                           ;	WRTB = OFF, Boot Block not write-protected
-  1866                           ;	Configuration Register Write Protection bit
-  1867                           ;	WRTC = OFF, Configuration registers (300000-30000Bh) not write-protected
-  1868                           ;	Data EEPROM Write Protection bit
-  1869                           ;	WRTD = OFF, Data EEPROM not write-protected
-  1870                           ;	SAF Write protection bit
-  1871                           ;	WRTSAF = OFF, SAF not Write Protected
-  1872                           ;	Low Voltage Programming Enable bit
-  1873                           ;	LVP = OFF, HV on MCLR/VPP must be used for programming
-  1874   300007                     	org	3145735
-  1875   300007  DF                 	db	223
-  1876                           
-  1877                           ;Config register CONFIG5L @ 0x300008
-  1878                           ;	PFM and Data EEPROM Code Protection bit
-  1879                           ;	CP = OFF, PFM and Data EEPROM code protection disabled
-  1880   300008                     	org	3145736
-  1881   300008  FF                 	db	255
-  1882                           
-  1883                           ;Config register CONFIG5H @ 0x300009
-  1884                           ;	unspecified, using default values
-  1885   300009                     	org	3145737
-  1886   300009  FF                 	db	255
-  1887                           tosu	equ	0x3FFF
-  1888                           tosh	equ	0x3FFE
-  1889                           tosl	equ	0x3FFD
-  1890                           stkptr	equ	0x3FFC
-  1891                           pclatu	equ	0x3FFB
-  1892                           pclath	equ	0x3FFA
-  1893                           pcl	equ	0x3FF9
-  1894                           tblptru	equ	0x3FF8
-  1895                           tblptrh	equ	0x3FF7
-  1896                           tblptrl	equ	0x3FF6
-  1897                           tablat	equ	0x3FF5
-  1898                           prodh	equ	0x3FF4
-  1899                           prodl	equ	0x3FF3
-  1900                           indf0	equ	0x3FEF
-  1901                           postinc0	equ	0x3FEE
-  1902                           postdec0	equ	0x3FED
-  1903                           preinc0	equ	0x3FEC
-  1904                           plusw0	equ	0x3FEB
-  1905                           fsr0h	equ	0x3FEA
-  1906                           fsr0l	equ	0x3FE9
-  1907                           wreg	equ	0x3FE8
-  1908                           indf1	equ	0x3FE7
-  1909                           postinc1	equ	0x3FE6
-  1910                           postdec1	equ	0x3FE5
-  1911                           preinc1	equ	0x3FE4
-  1912                           plusw1	equ	0x3FE3
-  1913                           fsr1h	equ	0x3FE2
-  1914                           fsr1l	equ	0x3FE1
-  1915                           bsr	equ	0x3FE0
-  1916                           indf2	equ	0x3FDF
-  1917                           postinc2	equ	0x3FDE
-  1918                           postdec2	equ	0x3FDD
-  1919                           preinc2	equ	0x3FDC
-  1920                           plusw2	equ	0x3FDB
-  1921                           fsr2h	equ	0x3FDA
-  1922                           fsr2l	equ	0x3FD9
-  1923                           status	equ	0x3FD8
+  1864                           ;	WDT input clock selector
+  1865                           ;	WDTCCS = SC, Software Control
+  1866   300005                     	org	3145733
+  1867   300005  FF                 	db	255
+  1868                           
+  1869                           ;Config register CONFIG4L @ 0x300006
+  1870                           ;	Boot Block Size selection bits
+  1871                           ;	BBSIZE = BBSIZE_512, Boot Block size is 512 words
+  1872                           ;	Boot Block enable bit
+  1873                           ;	BBEN = OFF, Boot block disabled
+  1874                           ;	Storage Area Flash enable bit
+  1875                           ;	SAFEN = OFF, SAF disabled
+  1876                           ;	Application Block write protection bit
+  1877                           ;	WRTAPP = OFF, Application Block not write protected
+  1878   300006                     	org	3145734
+  1879   300006  FF                 	db	255
+  1880                           
+  1881                           ;Config register CONFIG4H @ 0x300007
+  1882                           ;	Boot Block Write Protection bit
+  1883                           ;	WRTB = OFF, Boot Block not write-protected
+  1884                           ;	Configuration Register Write Protection bit
+  1885                           ;	WRTC = OFF, Configuration registers (300000-30000Bh) not write-protected
+  1886                           ;	Data EEPROM Write Protection bit
+  1887                           ;	WRTD = OFF, Data EEPROM not write-protected
+  1888                           ;	SAF Write protection bit
+  1889                           ;	WRTSAF = OFF, SAF not Write Protected
+  1890                           ;	Low Voltage Programming Enable bit
+  1891                           ;	LVP = OFF, HV on MCLR/VPP must be used for programming
+  1892   300007                     	org	3145735
+  1893   300007  DF                 	db	223
+  1894                           
+  1895                           ;Config register CONFIG5L @ 0x300008
+  1896                           ;	PFM and Data EEPROM Code Protection bit
+  1897                           ;	CP = OFF, PFM and Data EEPROM code protection disabled
+  1898   300008                     	org	3145736
+  1899   300008  FF                 	db	255
+  1900                           
+  1901                           ;Config register CONFIG5H @ 0x300009
+  1902                           ;	unspecified, using default values
+  1903   300009                     	org	3145737
+  1904   300009  FF                 	db	255
+  1905                           tosu	equ	0x3FFF
+  1906                           tosh	equ	0x3FFE
+  1907                           tosl	equ	0x3FFD
+  1908                           stkptr	equ	0x3FFC
+  1909                           pclatu	equ	0x3FFB
+  1910                           pclath	equ	0x3FFA
+  1911                           pcl	equ	0x3FF9
+  1912                           tblptru	equ	0x3FF8
+  1913                           tblptrh	equ	0x3FF7
+  1914                           tblptrl	equ	0x3FF6
+  1915                           tablat	equ	0x3FF5
+  1916                           prodh	equ	0x3FF4
+  1917                           prodl	equ	0x3FF3
+  1918                           indf0	equ	0x3FEF
+  1919                           postinc0	equ	0x3FEE
+  1920                           postdec0	equ	0x3FED
+  1921                           preinc0	equ	0x3FEC
+  1922                           plusw0	equ	0x3FEB
+  1923                           fsr0h	equ	0x3FEA
+  1924                           fsr0l	equ	0x3FE9
+  1925                           wreg	equ	0x3FE8
+  1926                           indf1	equ	0x3FE7
+  1927                           postinc1	equ	0x3FE6
+  1928                           postdec1	equ	0x3FE5
+  1929                           preinc1	equ	0x3FE4
+  1930                           plusw1	equ	0x3FE3
+  1931                           fsr1h	equ	0x3FE2
+  1932                           fsr1l	equ	0x3FE1
+  1933                           bsr	equ	0x3FE0
+  1934                           indf2	equ	0x3FDF
+  1935                           postinc2	equ	0x3FDE
+  1936                           postdec2	equ	0x3FDD
+  1937                           preinc2	equ	0x3FDC
+  1938                           plusw2	equ	0x3FDB
+  1939                           fsr2h	equ	0x3FDA
+  1940                           fsr2l	equ	0x3FD9
+  1941                           status	equ	0x3FD8
 
 Data Sizes:
     Strings     14
@@ -1996,15 +2014,15 @@ Critical Paths under _main in COMRAM
 
     None.
 
-Critical Paths under _isr in COMRAM
+Critical Paths under _fonc in COMRAM
 
-    _isr->_bt_send_str
+    _fonc->_bt_send_str
 
 Critical Paths under _main in BANK0
 
     None.
 
-Critical Paths under _isr in BANK0
+Critical Paths under _fonc in BANK0
 
     None.
 
@@ -2012,7 +2030,7 @@ Critical Paths under _main in BANK1
 
     None.
 
-Critical Paths under _isr in BANK1
+Critical Paths under _fonc in BANK1
 
     None.
 
@@ -2020,7 +2038,7 @@ Critical Paths under _main in BANK2
 
     None.
 
-Critical Paths under _isr in BANK2
+Critical Paths under _fonc in BANK2
 
     None.
 
@@ -2028,7 +2046,7 @@ Critical Paths under _main in BANK3
 
     None.
 
-Critical Paths under _isr in BANK3
+Critical Paths under _fonc in BANK3
 
     None.
 
@@ -2036,7 +2054,7 @@ Critical Paths under _main in BANK4
 
     None.
 
-Critical Paths under _isr in BANK4
+Critical Paths under _fonc in BANK4
 
     None.
 
@@ -2044,7 +2062,7 @@ Critical Paths under _main in BANK5
 
     None.
 
-Critical Paths under _isr in BANK5
+Critical Paths under _fonc in BANK5
 
     None.
 
@@ -2052,7 +2070,7 @@ Critical Paths under _main in BANK6
 
     None.
 
-Critical Paths under _isr in BANK6
+Critical Paths under _fonc in BANK6
 
     None.
 
@@ -2060,7 +2078,7 @@ Critical Paths under _main in BANK7
 
     None.
 
-Critical Paths under _isr in BANK7
+Critical Paths under _fonc in BANK7
 
     None.
 
@@ -2068,7 +2086,7 @@ Critical Paths under _main in BANK8
 
     None.
 
-Critical Paths under _isr in BANK8
+Critical Paths under _fonc in BANK8
 
     None.
 
@@ -2076,7 +2094,7 @@ Critical Paths under _main in BANK9
 
     None.
 
-Critical Paths under _isr in BANK9
+Critical Paths under _fonc in BANK9
 
     None.
 
@@ -2084,7 +2102,7 @@ Critical Paths under _main in BANK10
 
     None.
 
-Critical Paths under _isr in BANK10
+Critical Paths under _fonc in BANK10
 
     None.
 
@@ -2092,7 +2110,7 @@ Critical Paths under _main in BANK11
 
     None.
 
-Critical Paths under _isr in BANK11
+Critical Paths under _fonc in BANK11
 
     None.
 
@@ -2100,7 +2118,7 @@ Critical Paths under _main in BANK12
 
     None.
 
-Critical Paths under _isr in BANK12
+Critical Paths under _fonc in BANK12
 
     None.
 
@@ -2108,7 +2126,7 @@ Critical Paths under _main in BANK13
 
     None.
 
-Critical Paths under _isr in BANK13
+Critical Paths under _fonc in BANK13
 
     None.
 
@@ -2116,7 +2134,7 @@ Critical Paths under _main in BANK14
 
     None.
 
-Critical Paths under _isr in BANK14
+Critical Paths under _fonc in BANK14
 
     None.
 
@@ -2124,7 +2142,7 @@ Critical Paths under _main in BANK15
 
     None.
 
-Critical Paths under _isr in BANK15
+Critical Paths under _fonc in BANK15
 
     None.
 
@@ -2143,7 +2161,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (2) _isr                                                  5     5      0      93
+ (2) _fonc                                                 5     5      0     137
                                               1 COMRAM     5     5      0
                         _bt_send_str
  ---------------------------------------------------------------------------------
@@ -2158,7 +2176,7 @@ Call Graph Tables:
  _main (ROOT)
    _init_hw
 
- _isr (ROOT)
+ _fonc (ROOT)
    _bt_send_str
 
 Address spaces:
@@ -2206,61 +2224,62 @@ DATA                 0      0      12      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V3.10 build 20250813170317 
-Symbol Table                                                                                   Thu Oct 23 09:54:26 2025
+Symbol Table                                                                                   Thu Oct 23 10:00:20 2025
 
-                     l78 11F6             bt_send_str@s 0001                      l900 11B2  
-                    l910 11D0                      l902 11B6                      l912 11EA  
-                    l904 11B8                      l914 11EC                      l906 11BA  
-                    l916 11F0                      l908 11BC                      l918 11F2  
-                    l950 1144                      l960 1176                      l952 1148  
-                    l962 1178                      l954 114A                      l964 117A  
-                    l956 114C                      l966 118A                      l958 1164  
-                    l968 119C                      l898 11A6                      u110 1176  
-                    u111 1172                      u120 118A                      u121 1186  
-                    u130 119C                      u131 1198                      u247 1156  
-                    _isr 1010                      wreg 3FE8                     ?_isr 0001  
-                   STR_1 100B                     STR_2 1001                     STR_3 1006  
-                   _PIE0 3990                     i2l72 112C                     i2l65 10DC  
-                   i2l75 1142                     i2l69 1116                     i2l88 10BE  
-                   _main 1144                     isr@c 0006                     start 001A  
-          _ioc_rc0_event 000B             ___param_bank 0000                    ??_isr 0002  
-                  ?_main 0001                    _U2BRG 3DDD                    _IOCCF 3A67  
-                  _IOCCN 3A66                    _U2RXB 3DD0                    _U2TXB 3DD2  
-                  i2l980 1126                    i2l972 10D8                    i2l982 113C  
-                  i2l974 10EC                    i2l990 104A                    i2l976 10FA  
-                  i2l992 1052                    i2l984 1028                    i2l978 10FC  
-                  i2l986 1038                    i2l994 1056                    i2l996 1066  
-                  i2l988 1048                    i2l998 1074                    _PORTB 3FCB  
+                     l78 1216             bt_send_str@s 0001                      l910 11DA  
+                    l902 11C6                      l920 1210                      l912 11DC  
+                    l904 11D2                      l922 1212                      l914 11F0  
+                    l906 11D6                      l916 120A                      l908 11D8  
+                    l918 120C                      l960 116C                      l970 11AA  
+                    l962 1184                      l954 1164                      l972 11BC  
+                    l964 1196                      l956 1168                      l966 1198  
+                    l958 116A                      l968 119A                      u130 1196  
+                    u131 1192                      u140 11AA                      u141 11A6  
+                    u150 11BC                      u151 11B8                      u287 1176  
+                    wreg 3FE8                     STR_1 100B                     STR_2 1001  
+                   STR_3 1006                     _PIE0 3990                     i2l72 114C  
+                   i2l65 10FC                     i2l75 1162                     i2l91 10CE  
+                   i2l92 10DE                     i2l69 1136                     _fonc 1010  
+                   _main 1164                     start 001A            _ioc_rc0_event 000B  
+           ___param_bank 0000                    ?_fonc 0001                    ?_main 0001  
+                  _U2BRG 3DDD                    _IOCCF 3A67                    _IOCCN 3A66  
+                  _U2RXB 3DD0                    _U2TXB 3DD2                    i2l980 111A  
+                  i2l982 111C                    i2l990 1038                    i2l984 1146  
+                  i2l976 10F8                    i2l992 1048                    i2l986 115C  
+                  i2l978 110C                    i2l994 104A                    i2l996 1052  
+                  i2l988 1028                    i2l998 1062                    _PORTB 3FCB  
                   _PORTC 3FCC                    _TRISA 3FC2                    _TRISB 3FC3  
-                  _TRISC 3FC4          __end_of_init_hw 11F8                    tablat 3FF5  
-                  status 3FD8          __initialization 11F8             __end_of_main 11A6  
+                  _TRISC 3FC4          __end_of_init_hw 1218                    fonc@c 0006  
+                  tablat 3FF5                    status 3FD8          __initialization 1218  
+           __end_of_fonc 10F8             __end_of_main 11C6                   ??_fonc 0002  
                  ??_main 0007            __activetblptr 0001                   _ANSELA 3A40  
                  _ANSELB 3A50                   _ANSELC 3A60                   _U2CON0 3DDA  
                  _U2CON1 3DDB                   _U2CON2 3DDC                   _RB6PPS 3A0E  
-                 i2l1000 107A                   i2l1010 10B2                   i2l1002 108C  
-                 i2l1012 10BA                   i2l1004 1090                   i2l1006 109C  
-                 i2l1008 10AE                   isa$std 0001                ??_init_hw 0007  
-           __mediumconst 1000                   tblptrh 3FF7                   tblptrl 3FF6  
-                 tblptru 3FF8               __accesstop 0060  __end_of__initialization 1208  
-          ___rparam_used 0001           __pcstackCOMRAM 0001                  IVTBASEH 3FD6  
-                IVTBASEL 3FD5                  IVTBASEU 3FD7                  _INTCON0 3FD2  
-                _U2RXPPS 3AEA                  i2u20_40 1066                  i2u20_41 1062  
-                i2u21_40 1074                  i2u21_41 1070                  i2u14_40 10EC  
-                i2u22_40 108C                  i2u14_41 10E8                  i2u22_41 1088  
-                i2u15_40 1116                  i2u23_40 10AE                  i2u15_41 1112  
-                i2u23_41 10AA                  i2u16_40 1126                  i2u16_41 1122  
-                i2u17_40 113C                  i2u17_41 1138                  i2u18_40 1038  
-                i2u18_41 1034                  i2u19_40 1048                  i2u19_41 1044  
+                 i2l1000 1070                   i2l1010 10AA                   i2l1002 1076  
+                 i2l1012 10BC                   i2l1004 1088                   i2l1014 10D2  
+                 i2l1006 109A                   i2l1016 10DA                   i2l1008 109E  
+                 isa$std 0001                ??_init_hw 0007             __mediumconst 1000  
+                 tblptrh 3FF7                   tblptrl 3FF6                   tblptru 3FF8  
+             __accesstop 0060  __end_of__initialization 1228            ___rparam_used 0001  
+         __pcstackCOMRAM 0001                  IVTBASEH 3FD6                  IVTBASEL 3FD5  
+                IVTBASEU 3FD7                  _INTCON0 3FD2                  _U2RXPPS 3AEA  
+                i2u20_40 1038                  i2u20_41 1034                  i2u21_40 1048  
+                i2u21_41 1044                  i2u22_40 1062                  i2u22_41 105E  
+                i2u23_40 1070                  i2u23_41 106C                  i2u16_40 110C  
+                i2u24_40 1088                  i2u16_41 1108                  i2u24_41 1084  
+                i2u17_40 1136                  i2u25_40 109A                  i2u17_41 1132  
+                i2u25_41 1096                  i2u18_40 1146                  i2u26_40 10BC  
+                i2u18_41 1142                  i2u26_41 10B8                  i2u19_40 115C  
+                i2u27_40 10CE                  i2u19_41 1158                  i2u27_41 10CA  
          main@tick50_rc2 0009           main@tick50_rb5 000A                  __Hparam 0000  
-                __Lparam 0000             __psmallconst 1000                  __pcinit 11F8  
-                __ramtop 1000                  __ptext0 1144                  __ptext1 11A6  
-                __ptext2 1010                  __ptext3 10D8                  _init_hw 11A6  
-              _IOCCFbits 3A67     end_of_initialization 1208                _PORTBbits 3FCB  
-              _PORTCbits 3FCC            ??_bt_send_str 0002      start_initialization 11F8  
-            __end_of_isr 10D8               ivt0x8_base 0008      __end_of_bt_send_str 1144  
-            __pbssCOMRAM 000B                _blink_rb5 000C              __smallconst 1000  
-               ?_init_hw 0001              _bt_send_str 10D8                 _PIE7bits 3997  
-               _PIR0bits 39A0                 _PIR7bits 39A7                 __Hrparam 0000  
-               __Lrparam 0000             __Lsmallconst 1000                 __pivt0x8 0008  
-             _U2CON0bits 3DDA                 isa$xinst 0000                 intlevel2 0000  
-           ?_bt_send_str 0001  
+                __Lparam 0000             __psmallconst 1000                  __pcinit 1218  
+                __ramtop 1000                  __ptext0 1164                  __ptext1 11C6  
+                __ptext2 1010                  __ptext3 10F8                  _init_hw 11C6  
+              _IOCCFbits 3A67     end_of_initialization 1228                _PORTBbits 3FCB  
+              _PORTCbits 3FCC            ??_bt_send_str 0002      start_initialization 1218  
+             ivt0x8_base 0008      __end_of_bt_send_str 1164              __pbssCOMRAM 000B  
+              _blink_rb5 000C              __smallconst 1000                 ?_init_hw 0001  
+            _bt_send_str 10F8                 _PIE7bits 3997                 _PIR0bits 39A0  
+               _PIR7bits 39A7                 __Hrparam 0000                 __Lrparam 0000  
+           __Lsmallconst 1000                 __pivt0x8 0008               _U2CON0bits 3DDA  
+               isa$xinst 0000                 intlevel2 0000             ?_bt_send_str 0001  

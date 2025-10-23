@@ -36708,22 +36708,21 @@ static void init_hw(void)
     U2CON0bits.RXEN = 1;
 }
 
-void __attribute__((picinterrupt(("")))) isr(void)
+void __attribute__((picinterrupt(("")))) fonc(void)
 {
 
     if (PIR0bits.IOCIF && IOCCFbits.IOCCF0) {
         IOCCFbits.IOCCF0 = 0;
         bt_send_str("RC0");
-        PIR0bits.IOCIF = 0;
     }
 
 
     if (PIE7bits.U2RXIE && PIR7bits.U2RXIF) {
         uint8_t c = U2RXB;
-        if (c == 'A') {
+        if (c == 'A' || c == 'a') {
             blink_rb5 = 1;
             bt_send_str("OK_A");
-        } else if (c == 'B') {
+        } else if (c == 'B' || c == 'b') {
             blink_rb5 = 0;
             PORTBbits.RB5 = 0;
             bt_send_str("OK_B");
@@ -36735,7 +36734,6 @@ void __attribute__((picinterrupt(("")))) isr(void)
 int main(void)
 {
     init_hw();
-
 
     uint8_t tick50_rc2 = 0;
     uint8_t tick50_rb5 = 0;

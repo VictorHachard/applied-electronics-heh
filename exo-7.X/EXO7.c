@@ -16,7 +16,7 @@
 #pragma config WRTB=OFF, WRTC=OFF, WRTD=OFF, WRTSAF=OFF, LVP=OFF
 #pragma config CP=OFF
 
-#define _XTAL_FREQ 64000000UL
+#define _XTAL_FREQ 64000000
 
 #include <xc.h>
 #include <stdint.h>
@@ -69,22 +69,21 @@ static void init_hw(void)
     U2CON0bits.RXEN = 1;
 }
 
-void __interrupt() isr(void)
+void __interrupt() fonc(void)
 {
     /* IOC sur RC0 : envoi d’un petit message BT directement depuis l’IT */
     if (PIR0bits.IOCIF && IOCCFbits.IOCCF0) {
         IOCCFbits.IOCCF0 = 0;       // clear flag ligne
         bt_send_str("RC0");         // message BT à l’appui
-        PIR0bits.IOCIF = 0;         // clear global IOCIF si besoin
     }
 
     /* UART2 RX : lecture et action */
     if (PIE7bits.U2RXIE && PIR7bits.U2RXIF) {
         uint8_t c = U2RXB;              // lit l’octet reçu
-        if (c == 'A') {
+        if (c == 'A' || c == 'a') {
             blink_rb5 = true;
             bt_send_str("OK_A");
-        } else if (c == 'B') {
+        } else if (c == 'B' || c == 'b') {
             blink_rb5 = false;
             PORTBbits.RB5 = 0;          // éteint proprement
             bt_send_str("OK_B");
